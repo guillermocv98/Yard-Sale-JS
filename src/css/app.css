@@ -176,9 +176,22 @@ body {
     padding-block-start: 2rem;
     border-top: 1px solid var(--text);
 }
+@media (max-width: 768px) {
+    .menu--desktop {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
 /* Menu-mobile */
 .menu--mobile {
-    padding: 2rem 0 0 2rem;
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    width: 100%;
+    max-width: 30rem;
+    padding: 2rem 2rem 0 2rem;
+    background-color: var(--light);
+    box-shadow: 0px 10px 20px 1px var(--text);
 }
 .menu__elemento--mobile:nth-child(9) {
     margin-block-end: 2rem;
@@ -195,6 +208,12 @@ body {
     font-size: var(--sm);
     font-weight: 400;
     color: var(--text);
+}
+@media (min-width: 768px) {
+    .menu--mobile {
+        visibility: hidden;
+        opacity: 0;
+    }
 }
 
 
