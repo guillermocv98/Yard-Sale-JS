@@ -10,7 +10,7 @@ const menuDesktop = document.querySelector('#menu--desktop');
 const linkMenuCarrito = document.querySelector('#link-menu--carrito');
 const menuCarrito = document.querySelector('#menu--carrito');
 
-console.log();
+
 
 
 //ADDEVENTLISTENERS
