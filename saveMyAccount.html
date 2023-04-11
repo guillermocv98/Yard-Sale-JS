@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <title>Save Changes</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
+    <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
+    <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__contenido">
+            <div class="login__cont-texto">
+                <h1 class="title title--save">My Account</h1>
+            </div>
+
+            <form action="/" class="formulario formulario--save">
+                <div class="formulario__campo">
+                    <label for="save-name">Name</label>
+                    <input id="cerate-name" class="formulario__input formulario__input--save-name" type="text" placeholder="Your New Name">
+                </div>
+                <div class="formulario__campo">
+                    <label for="save-email">Email Address</label>
+                    <input id="save-email" class="formulario__input formulario__input--save-email" type="email" placeholder="example@example.com">
+                </div>
+                <div class="formulario__campo">
+                    <label for="save-password">Password</label>
+                    <input id="save-password" class="formulario__input formulario__input--save-pw" type="password" placeholder="******">
+                </div>
+
+                <input id="submit--save-changes" class="btn btn--primary formulario__submit formulario__submit--save" type="submit" value="Save Changes">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

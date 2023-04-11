@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <title>Producto</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
+    <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
+    <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
+</head>
+<body>
+    <aside class="vista-producto">
+        <div class="vista-producto__position">
+            <figure class="vista-producto__imagen">
+                <a id="cerrar-vista-producto" class="vista-producto__cerrar" href="#">
+                    <img class="vista-producto__cerrar-img" src="src/icon/icon_close.png" width="20" height="20" alt="cerrar vista ampliada de producto">
+                </a>
+                <picture>
+                    <source srcset="src/img/producto.avif" type="image/avif">
+                    <source srcset="src/img/producto.webp" type="image/webp">
+                
+                    <img class="vista-producto__img" loading="lazy" src="src/img/producto.jpg" width="300" height="300" alt="imagen producto">
+                </picture>
+            </figure>
+    
+            <div class="vista-producto__contenido">
+                <div class="vista-producto__info">
+                    <p class="producto__precio">120€</p>
+                    <p class="producto__nombre">Laptop</p>
+                </div>
+                
+                <p class="vista-producto__texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+                <a href="#" class="vista-producto__link">
+                    <img class="vista-producto__link-img" src="src/icon/bt-add-to-cart.svg" width="20" height="20" alt="add to cart">
+                    <p class="vista-producto__link-text">Add to Cart</p>
+                </a>
+            </div>
+        </div>
+    </aside>
+</body>
+</html>

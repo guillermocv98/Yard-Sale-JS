@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <title>Log in</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
+    <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
+    <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__contenido">
+            <figure class="login__cont-logo">
+                <img class="login__logo" src="src/logo/logo_yard_sale.svg" alt="logo">
+            </figure>
+
+            <form action="/" class="formulario">
+                <div class="formulario__campo">
+                    <label for="login-email">Email Address</label>
+                    <input id="login-email" class="formulario__input formulario__input--login-email" type="email" placeholder="example@example.com">
+                </div>
+                <div class="formulario__campo">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" class="formulario__input formulario__input--login-pwd" type="password" placeholder="******">
+                </div>
+
+                <input id="submit-login" class="btn btn--primary formulario__submit formulario__submit--login-log" type="submit" value="Log in">
+
+                <a class="forgot-pwd" href="#">Forgot my password</a>
+                
+                <input id="submit-signup" class="btn btn--secondary formulario__submit formulario__submit--login-sign" type="submit" value="Sign up">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

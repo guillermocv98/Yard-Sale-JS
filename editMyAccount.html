@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <title>Edit My Account</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
+    <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
+    <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__contenido">
+            <div class="login__cont-texto">
+                <h1 class="title title--edit">My Account</h1>
+            </div>
+
+            <form action="/" class="formulario formulario--edit">
+                <div class="formulario__campo formulario__campo--edit">
+                    <label for="edit-name">Name</label>
+                    <p id="edit-name" class="edit-text edit-name">Guillermo Cartagena</p>
+                </div>
+                <div class="formulario__campo formulario__campo--edit">
+                    <label for="edit-email">Email Address</label>
+                    <p id="edit-email" class="edit-text edit-email">correo@correo.com</p>
+                </div>
+                <div class="formulario__campo formulario__campo--edit">
+                    <label for="edit-password">Password</label>
+                    <p id="edit-password" class="edit-text edit-password">******</p>
+                </div>
+
+                <input id="submit--edit" class="btn btn--secondary formulario__submit formulario__submit--edit" type="submit" value="Edit Account">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

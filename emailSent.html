@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <title>Email Sent</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
+    <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
+    <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__contenido">
+            <figure class="login__cont-logo">
+                <img class="login__logo" src="src/logo/logo_yard_sale.svg" alt="logo">
+            </figure>
+
+            <div class="login__cont-texto">
+                <h1 class="title">Email has been sent!</h1>
+                <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+            </div>
+
+            <figure class="email-sent__icon">
+                <img class="email-sent__img" src="src/icon/email.svg" alt="icono de carta haciendo referencia al envío de un email">
+            </figure>
+
+            <form action="/" class="formulario">
+                <input id="submit--email-sent" class="btn btn--primary formulario__submit" type="submit" value="Login" >
+            </form>
+
+            <p class="resend">
+                <span class="resend__texto">Didn't receive your email?</span>
+                <a class="resend__link" href="#">Resend</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
