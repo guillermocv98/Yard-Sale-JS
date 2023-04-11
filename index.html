@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Description">
-    <title>Index</title>
+    <title>Yard Sale</title>
     <link rel="preconnect" as="style" href="src/css/normalize.css">
     <link rel="stylesheet" as="style" href="src/css/normalize.css">
     <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
@@ -15,24 +15,51 @@
     <link rel="stylesheet" as="style" href="src/css/app.css">
 </head>
 <body>
-    <div class="proyecto">
-        <div class="proyecto__contenido">
-            <nav class="proyecto__navegacion">
-                <a href="inicio.html" class="proyecto__navegacion__link">Página principal</a>
-                <a href="navBar.html" class="proyecto__navegacion__link">Barra de navegación</a>
-                <a href="menuMobile.html" class="proyecto__navegacion__link">Menú Mobile</a>
-                <a href="menuDesktop.html" class="proyecto__navegacion__link">Menú Desktop</a>
-                <a href="login.html" class="proyecto__navegacion__link">Página Inicio de sesión</a>
-                <a href="emailSent.html" class="proyecto__navegacion__link">Página Email Enviado</a>
-                <a href="newPassword.html" class="proyecto__navegacion__link">Página cambiar de contraseña</a>
-                <a href="editMyAccount.html" class="proyecto__navegacion__link">Página edición de cuenta</a>
-                <a href="saveMyAccount.html" class="proyecto__navegacion__link">Página Guardar cambios en la cuenta</a>
-                <a href="producto.html" class="proyecto__navegacion__link">Vista ampliada de producto</a>
-                <a href="shoppingCart.html" class="proyecto__navegacion__link">Carrito de compra</a>
-                <a href="myOrder.html" class="proyecto__navegacion__link">Página mi Pedido</a>
-                <a href="lastOrders.html" class="proyecto__navegacion__link">Página últimos pedidos</a>
-            </nav>
+    <header class="header">
+        <!-- btn menu mobile ⬇️ -->
+        <a href="#" id="link-menu--mobile" class="menu__btn">
+            <img src="src/icon/icon_menu.svg" alt="icono menu">
+        </a>
+        <!-- btn menu mobile ⬇⬆️ -->
+
+        <figure class="header__logo">
+            <img class="header__logo-img" src="src/logo/logo_yard_sale.svg" alt="logo empresa">
+        </figure>
+
+        <nav class="navegacion-principal">
+            <a href="#" class="navegacion-principal__link">All</a>
+            <a href="#" class="navegacion-principal__link">Clothes</a>
+            <a href="#" class="navegacion-principal__link">Electronics</a>
+            <a href="#" class="navegacion-principal__link">Furnitures</a>
+            <a href="#" class="navegacion-principal__link">Toys</a>
+            <a href="#" class="navegacion-principal__link">Others</a>
+        </nav>
+
+        <div class="header__info">
+            <a href="#" id="link-menu--desktop" class="header__email">yeyo@example.com</a>
+            <a href="#" class="haeader__order">
+                <img src="src/icon/icon_shopping_cart.svg" alt="carrito de la compra">
+            </a>
         </div>
-    </div>
+
+        <!-- menu desktop ⬇️ -->
+        <div id="menu--desktop" class="menu menu--desktop inactive">
+            <ul class="menu__lista menu__lista--desktop">
+                <li class="menu__elemento menu__elemento--desktop">
+                    <a href="#" id="my-orders-link" class="menu__link menu__link--desktop">My orders</a>
+                </li>
+                <li class="menu__elemento menu__elemento--desktop">
+                    <a href="#" id="my-account-link" class="menu__link menu__link--desktop">My account</a>
+                </li>
+                <li class="menu__elemento menu__elemento--sign menu__elemento--desktop menu__elemento--sign--desktop">
+                    <a href="#" id="sign-up-link" class="menu__link menu__link--sign menu__link--sign--desktop">Sign out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- menu desktop ⬆️ -->
+
+    </header>
+    
+    <script src="js/app.js"></script>
 </body>
 </html>
