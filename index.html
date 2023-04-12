@@ -214,12 +214,48 @@
     </aside>
     <!-- info carrito ⬆️ -->
 
+    <!-- listado productos ⬇️ -->
     <main class="inicio">
         <div id="grid-productos" class="inicio__grid">
             <!-- productos a través de JS-->
         </div>
-    </main>
 
+        
+    </main>
+    <!-- listado productos ⬆️ -->
+    
+    <!-- vista ampliada de producto ⬇️ -->
+    <aside id="show-product" class="vista-producto inactive">
+        <div class="vista-producto__position">
+            <figure class="vista-producto__imagen">
+                <a id="close-show-product" class="vista-producto__cerrar" href="#">
+                    <img class="vista-producto__cerrar-img" src="src/icon/icon_close.png" width="20" height="20" alt="cerrar vista ampliada de producto">
+                </a>
+                <picture>
+                    <source id="show-product-img--avif" srcset="" type="image/avif">
+                    <source id="show-product-img--webp" srcset="" type="image/webp">
+                    
+                    <img id="show-product-img--jpg" class="vista-producto__img" loading="lazy" src="" width="300" height="300" alt="imagen producto">
+                </picture>
+            </figure>
+            
+            <div class="vista-producto__contenido">
+                <div class="vista-producto__info">
+                    <p id="show-product-price" class="producto__precio"></p>
+                    <p id="show-product-name" class="producto__nombre">Laptop</p>
+                </div>
+                
+                <p class="vista-producto__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                
+                <a href="#" id="add-to-cart--aside" class="vista-producto__link">
+                    <img class="vista-producto__link-img" src="src/icon/bt-add-to-cart.svg" width="20" height="20" alt="add to cart">
+                    <p class="vista-producto__link-text">Add to Cart</p>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!-- vista ampliada de producto ⬆️ -->
+    
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -116,6 +116,7 @@ body {
     position: absolute;
     top: -1.4rem;
     right: -.8rem;
+    z-index: 2;
     display: grid;
     place-content: center;
     padding: .5rem;
@@ -155,6 +156,9 @@ body {
 }
 
 /* Menu */
+.menu {
+    z-index: 3;
+}
 .menu__lista {
     list-style: none;
     padding: 0;
@@ -179,7 +183,6 @@ body {
     position: absolute;
     top: 7.07rem;
     right: 5.8rem;
-    z-index: 2;
     width: 14rem;
     height: auto;
     padding: .5rem 2rem 0 2rem;
@@ -207,7 +210,6 @@ body {
     position: absolute;
     top: 7.5rem;
     left: 0;
-    z-index: 2;
     width: 100%;
     max-width: 30rem;
     padding: 2rem 2rem 0 2rem;
@@ -241,6 +243,7 @@ body {
 
 /* INDEX */
 .inicio {
+    position: relative;
     display: grid;
     place-items: center;
     width: 95%;
@@ -282,6 +285,13 @@ body {
     font-size: 500;
     color: var(--text);
 }
+.producto__add-carrito__img {
+    transition: transform .5s ease;
+}
+.producto__add-carrito__img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
 @media (min-width: 450px) {
     .inicio__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -301,7 +311,11 @@ body {
 /* Vista Producto */
 
 .vista-producto {
+    position: absolute;
+    top: 7.5rem;
+    z-index: 1;
     width: 100%;
+    background-color: var(--light);
 }
 .vista-producto__imagen {
     position: relative;
@@ -323,7 +337,7 @@ body {
     gap: 2.5rem;
     padding: 2rem;
 }
-.vista-producto__texto {
+.vista-producto__descripcion {
     font-size: var(--sm);
     color: var(--text);
 }
@@ -339,6 +353,11 @@ body {
     color: var(--light);
     background-color: var(--green);
     border-radius: 1.5rem;
+
+    transition: transform .5s ease;
+}
+.vista-producto__link:hover {
+    transform: scale(1.05);
 }
 .vista-producto__link-img {
     width: 3rem;
@@ -349,7 +368,11 @@ body {
         width: 30rem;
         position: absolute;
         right: 0;
-        box-shadow: 0 0 20px 10px var(--back-text);
+        border-bottom-left-radius: 1.5rem;
+        box-shadow: 0 10px 20px 2px var(--text);
+    }
+    .vista-producto__img {
+        border-bottom-right-radius: 0;
     }
 }
 
@@ -377,7 +400,7 @@ body {
     .order.shopping-cart {
         position: absolute;
         right: 0;
-        z-index: 1;
+        z-index: 2;
         background-color: var(--light);
         box-shadow: 0 10px 20px 10px var(--back-text);
     }
