@@ -274,7 +274,10 @@ body {
 .producto__contenido {
     display: flex;
     justify-content: space-between;
-    margin-inline: 1rem;
+    align-items: center;
+}
+.producto__info {
+    min-width: 6rem;
 }
 .producto__precio {
     font-size: var(--md);
@@ -284,6 +287,14 @@ body {
     font-size: var(--sm);
     font-size: 500;
     color: var(--text);
+}
+.producto__cantidad {
+    width: 25%;
+    padding: .5rem;
+    font-size: 1.8rem;
+    color: var(--text);
+    border: 1px solid var(--green);
+    outline: none;
 }
 .producto__add-carrito__img {
     transition: transform .5s ease;

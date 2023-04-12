@@ -1,6 +1,8 @@
 // VARIABLES
 
-// Desplegables
+
+// Desplegables // 
+
 const linkMenuMobile = document.querySelector('#link-menu--mobile');
 const menuMobile = document.querySelector('#menu--mobile');
 
@@ -13,19 +15,23 @@ const linkMenuCart = document.querySelector('#link-menu--carrito');
 const menuCart = document.querySelector('#menu--carrito');
 
 
+
 // -- Show product -- //
+
 // Link apertura en la línea 6 de la inserción del HTML //
-const showProduct = document.querySelector('#show-product');
 const linkCloseShowProduct = document.querySelector('#close-show-product')
-
-const linkAddToCartAside = document.querySelector('#add-to-cart--aside');
-
+const showProduct = document.querySelector('#show-product');
 
 const showProductImgAvif = document.querySelector('#show-product-img--avif');
 const showProductImgWebp = document.querySelector('#show-product-img--webp');
 const showProductImgJpg= document.querySelector('#show-product-img--jpg');
 const showProductPrice = document.querySelector('#show-product-price')
 const showProductName = document.querySelector('#show-product-name')
+
+const linkAddToCartAside = document.querySelector('#add-to-cart--aside');
+
+
+
 
 
 //ADDEVENTLISTENERS
@@ -59,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 //FUNCIONES
 
 // Desplegables
@@ -80,7 +88,9 @@ function showProductChargeData(product) {
     showProductPrice.textContent = product.price;
     // Nombre
     showProductName.textContent = product.name;
-
+};
+function updateCartAmount() {
+    console.log('+1');
 };
 
 
@@ -170,6 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
         name.textContent = product.name;
         info.appendChild(name);
 
+        const amount = document.createElement('input');
+        amount.classList.add('producto__cantidad');
+        amount.setAttribute('type', 'number');
+        content.appendChild(amount);
+
         const add_cart = document.createElement('div');
         add_cart.classList.add('producto__add-carrito');
         content.appendChild(add_cart);
@@ -191,4 +206,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// git commit -am "Adhesión del aside contenedor de la vista ampliada de los productos al index.html, Impletementación de la performance con JS parte 1 (se ha configurado la entrada y salida "
