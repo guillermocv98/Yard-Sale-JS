@@ -1,0 +1,192 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin mq($px) {
+    @media (min-width: $px) {
+        @content;
+    }
+}
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin telefonoM {
+    @media (min-width: v.$telefonoM) {
+        @content;
+    }
+}
+@mixin telefonoL {
+    @media (min-width: v.$telefonoL) {
+        @content;
+    }
+}
+@mixin telefonoXL {
+    @media (min-width: v.$telefonoXL) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktopM {
+    @media (min-width: v.$desktopM) {
+        @content;
+    }
+}
+@mixin desktopL {
+    @media (min-width: v.$desktopL) {
+        @content;
+    }
+}
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin grid($col, $gap ) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($col, 1fr);
+}
+
+@mixin bgimageGradient($url, $color: #000) {
+    background-image: linear-gradient( $color 0%, $color 100% ), url( $url );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+@mixin bglinearLayout($url, $color: v.$primario) {
+    background-image: linear-gradient( to top, transparent 50%, ($color) 50%, ($color) 100%), url($url);
+    background-repeat: no-repeat;
+    background-position: 50%, bottom;
+    @include tablet {
+        background-image: linear-gradient( to left, transparent 50%, ($color) 50%, ($color) 100%), url($url);
+        background-position: center;
+    }
+}
+
+@mixin bglinearDobleLayout($color-50, $color-100) {
+    background-image: linear-gradient( to top, ($color-50) 50%, ($color-100) 50%, ($color-100) 100%);
+    @include tablet {
+        background-image: linear-gradient( to right, ($color-50) 50%, ($color-100) 50%, ($color-100) 100%);
+    }
+}
+
+@mixin headingCursiva {
+    color: v.$secundario;
+    font-family: v.$fuente_cursiva;
+    text-align: center;
+    text-transform: lowercase;
+
+    span {
+        display: block;
+        color: v.$negro;
+        font-family: v.$fuente_principal;
+        font-weight: 400;
+        line-height: .1;
+        text-transform: uppercase;
+    }
+}
+
+@mixin headingSpanBoldBorder($salto: false) {
+    display: inline-block;
+    font-weight: 400;
+    span {
+        font-weight: 700;
+        @if($salto) {
+            display: block;
+        }
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 40%;
+        height: 1rem;
+        margin: 1rem 0 2.5rem 0;
+        background-image: linear-gradient( to right, v.$primario 0%, v.$primario 50%, lighten(v.$primario, 20%) 50%, lighten(v.$primario, 20%) 100%);
+    }
+}
+
+@mixin border-b($bgcolor, $color) {
+    display: inline-block;
+    color: $color;
+    margin: 2rem 0 0;
+    @include tablet {
+        margin: 0;
+    }
+    &:after {
+        content: '';
+        display: block;
+        background-color: $bgcolor;
+        width: 102%;
+        height: 1rem;
+        margin: -1.5rem 0 0;
+    }
+}
+
+@mixin boton($bgcolor, $color) {
+    display: block;
+    background-color: $bgcolor;
+    color: $color;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 1.2rem 3rem;
+    border-radius: 1rem;
+    border: none;
+    transition: background-color .3s ease;
+    @content;
+
+    &:hover {
+        cursor: pointer;
+        background-color: darken($bgcolor, 20);
+    }
+
+    @include tablet {
+        width: auto;
+        display: inline-block;
+    }
+}
+
+@mixin scroll-x {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    > * {
+        scroll-snap-align: center;
+    }
+}
+
+@mixin iconoTarifa($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: 50% 2rem;
+    background-size: 10rem;
+}
+
+@mixin comillaTestim($url, $width:4rem, $height:4rem) {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        background-image: url($url);
+        background-repeat: no-repeat;
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+    }
+}

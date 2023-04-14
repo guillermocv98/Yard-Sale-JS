@@ -1,0 +1,87 @@
+@use 'variables' as v; 
+@use 'base/mixins' as m;
+
+[class$="contenedor"],
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.seccion {
+    padding: calc(v.$gap / 2) 0;
+    @include m.tablet {
+        padding: v.$gap 0;
+    }
+}
+.mini-seccion {
+    padding: 1.5rem 0;
+    @include m.tablet {
+        padding: calc(v.$gap / 2) 0;
+    }
+}
+
+.bg-primario {
+    background-color: v.$primario;
+}
+.bg-secundario {
+    background-color: v.$secundario;
+}
+.fw-700 {
+    font-weight: 700;
+}
+.t-center {
+    text-align: center;
+}
+.mw-30 {
+    max-width: 30rem;
+}
+.pd-2 {
+    padding: 2rem;
+}
+.pdbk-2 {
+    padding-block: 2rem;
+}
+.pdbk-5 {
+    padding-block: 5rem;
+}
+.mt-0 {
+    margin-block-start: 0;
+}
+.mt-2 {
+    margin-block-start: 2rem;
+}
+.mgr-2 {
+    margin-inline-end: 2rem;
+}
+.mb-2 {
+    margin-block-end: 2rem;
+}
+.mb-3 {
+    margin-block-end: 3rem;
+}
+.mgl-2 {
+    margin-block-end: 2rem
+}
+.btn-primario {
+    @include m.boton(v.$primario, v.$secundario);
+}
+.btn-secundario {
+    @include m.boton(v.$secundario, v.$primario);
+}
+.btn {
+    @include m.boton(v.$primario, v.$blanco);
+}
+.btn2 {
+    @include m.boton(v.$secundario, v.$blanco);
+}
+.btn3 {
+    @include m.boton(v.$terciario, v.$blanco);
+}
+
+.no-ul-style {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.creando {height: 30rem;}
