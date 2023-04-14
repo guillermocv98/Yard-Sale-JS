@@ -470,6 +470,7 @@ body {
     align-items: center;
     gap: 1rem;
 }
+.articulo__info,
 .articulo__imagen {
     overflow: hidden;
     max-width: 10rem;
@@ -480,9 +481,30 @@ body {
     object-fit: cover;
     border-radius: 1.5rem;                  
 }
+.articulo__info-izda-dcha {
+    display: grid;
+    gap: .5rem;
+    color: var(--text);
+}
 .articulo__nombre {
     font-weight: 500;
-    color: var(--text);
+}
+.articulo__info-amount {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.articulo__amount-change {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+.articulo__amount-icon{
+    background-color: var(--green);
+    border-radius: 50%;
+}
+.articulo__amount-icon:hover {
+    cursor: pointer;
 }
 .articulo__precio {
     font-weight: 700;
