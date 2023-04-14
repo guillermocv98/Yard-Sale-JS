@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         productList.push({
             name: name,
             price: price,
-            image_1: `src/img/producto-${index}.avif`,
-            image_2: `src/img/producto-${index}.webp`,
-            image_3: `src/img/producto-${index}.jpg`,
-            icon: 'src/icon/add-to-cart.svg',
+            image_1: `src/assets/img/producto-${index}.avif`,
+            image_2: `src/assets/img/producto-${index}.webp`,
+            image_3: `src/assets/img/producto-${index}.jpg`,
+            icon: 'src/assets/icon/add-to-cart.svg',
             description: description
         });
     };
