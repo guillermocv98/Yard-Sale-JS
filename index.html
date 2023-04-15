@@ -161,8 +161,8 @@
     <!-- vista ampliada de producto ⬇️ -->
     <aside id="show-product" class="product-view inactive">
         <div class="product-view__position">
-            <figure class="product-view__imagen">
-                <a id="close-show-product" class="product-view__cerrar" href="#">
+            <figure class="product-view__image">
+                <a id="close-show-product" class="product-view__close" href="#">
                     <img class="product-view__cerrar-img" src="src/assets/icon/icon_close.png" width="20" height="20" alt="cerrar vista ampliada de producto">
                 </a>
                 <picture>
@@ -173,13 +173,18 @@
                 </picture>
             </figure>
             
-            <div class="product-view__contenido">
-                <div class="product-view__info">
-                    <p id="show-product-price" class="producto__precio"></p>
-                    <p id="show-product-name" class="producto__nombre">Laptop</p>
+            <div class="product-view__content">
+                <div class="product__info">
+                    <div class="product__data">
+                        <p id="show-product-price" class="product__price"></p>
+                        <p id="show-product-name" class="product__name">Laptop</p>
+                    </div>
+                    <form class="product__form-amount">
+                        <input class="product__amount" type="number" min="1" value="1">
+                    </form>
                 </div>
                 
-                <p class="product-view__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="product-view__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 
                 <a href="#" id="add-to-cart--aside" class="product-view__link">
                     <img class="product-view__link-img" src="src/assets/icon/bt-add-to-cart.svg" width="20" height="20" alt="añadir al carrito">
@@ -189,7 +194,8 @@
         </div>
     </aside>
     <!-- vista ampliada de producto ⬆️ -->
-    
+    <script src="js/imgFormat.js"></script>
+    <script src="js/dataBase.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

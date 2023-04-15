@@ -1,12 +1,12 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.view-product {
+.product-view {
     position: absolute;
     top: 7.5rem;
     z-index: 1;
     width: 100%;
-    background-color: var(--light);
+    background-color: v.$light;
 
     @include m.mq(600px) {
         width: 30rem;
