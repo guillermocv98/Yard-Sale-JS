@@ -2,107 +2,112 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // Variables
-    const productList = [];
-    const divProducts = document.querySelector('#grid-products');
+    const listProducts = [];
+    const divProductsHTML = document.querySelector('#grid-products');
     const description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos praesentium alias atque laudantium! Nam eligendi doloribus architecto error maxime!';
 
 
     // Crear base de datos
     let price = 120;
     for(let i = 1; i <= 15; i++) {
-        createProduct(`Laptop ${i}`, price, i, description);
+        createProduct(`AAA-${i}`, `Laptop ${i}`, price, i, description);
         price += 20;
     }
-    function createProduct(name, price, index, description) {
-        productList.push({
+    function createProduct(id, name, price, index, description) {
+        listProducts.push({ // Product
+            id: id,
             name: name,
             price: price,
             image_1: `build/img/product-${index}.avif`,
             image_2: `build/img/product-${index}.webp`,
             image_3: `build/img/product-${index}.jpg`,
             icon: 'src/assets/icon/add-to-cart.svg',
-            description: description
+            description: description,
+            amount: 1
         });
     };
 
-
     // Insertar en el html
-    productList.forEach(product => {
-        divProducts.querySelector('#grid-products');
+    listProducts.forEach(product => { 
 
-        const producto = document.createElement('div');
-        producto.classList.add('product');
-        divProducts.appendChild(producto);
+        const productHTML = document.createElement('div');
+        productHTML.classList.add('product');
+        divProductsHTML.appendChild(productHTML);
         
-        const picture = document.createElement('picture');
-        producto.appendChild(picture);
+        const pictureHTML = document.createElement('picture');
+        productHTML.appendChild(pictureHTML);
         
-        const source1 = document.createElement('source');
-        source1.setAttribute('src', product.image_1);
-        source1.setAttribute('type', 'image/avif');
-        picture.appendChild(source1);
+        const sourceHTML1 = document.createElement('source');
+        sourceHTML1.setAttribute('src', product.image_1);
+        sourceHTML1.setAttribute('type', 'image/avif');
+        pictureHTML.appendChild(sourceHTML1);
         
-        const source2 = document.createElement('source');
-        source2.setAttribute('src', product.image_2);
-        source2.setAttribute('type', 'image/webp');
-        picture.appendChild(source2);
+        const sourceHTML2 = document.createElement('source');
+        sourceHTML2.setAttribute('src', product.image_2);
+        sourceHTML2.setAttribute('type', 'image/webp');
+        pictureHTML.appendChild(sourceHTML2);
         
-        const img = document.createElement('img');
-        img.classList.add('product__img');
-        img.setAttribute('src', product.image_3);
-        img.setAttribute('width', '150');
-        img.setAttribute('height', '150');
-        img.setAttribute('alt', 'imagen producto');
-        picture.appendChild(img);
+        const imgHTML = document.createElement('img');
+        imgHTML.classList.add('product__img');
+        imgHTML.setAttribute('src', product.image_3);
+        imgHTML.setAttribute('width', '150');
+        imgHTML.setAttribute('height', '150');
+        imgHTML.setAttribute('alt', 'imagen producto');
+        pictureHTML.appendChild(imgHTML);
         // Desplegable vista producto
-        img.addEventListener('click', e => {
-            openView(showProduct);
+        imgHTML.addEventListener('click', e => {
+            openView(showProductHTML);
             showProductChargeData(product);
         });
 
-        const info = document.createElement('div');
-        info.classList.add('product__info');
-        producto.appendChild(info);
+        const infoHTML = document.createElement('div');
+        infoHTML.classList.add('product__info');
+        productHTML.appendChild(infoHTML);
 
-        const data = document.createElement('div');
-        data.classList.add('product__data');
-        info.appendChild(data);
+        const dataHTML = document.createElement('div');
+        dataHTML.classList.add('product__data');
+        infoHTML.appendChild(dataHTML);
 
-        const price = document.createElement('p');
-        price.classList.add('product__price');
-        price.textContent = `${product.price}€`;
-        data.appendChild(price);
+        const priceHTML = document.createElement('p');
+        priceHTML.classList.add('product__price');
+        priceHTML.textContent = `${product.price}€`;
+        dataHTML.appendChild(priceHTML);
 
-        const name = document.createElement('p');
-        name.classList.add('product__name');
-        name.textContent = product.name;
-        data.appendChild(name);
+        const nameHTML = document.createElement('p');
+        nameHTML.classList.add('product__name');
+        nameHTML.textContent = product.name;
+        dataHTML.appendChild(nameHTML);
 
-        const formAmount = document.createElement('form');
-        formAmount.classList.add('product__form-amount');
-        info.appendChild(formAmount);
+        const formAmountHTML = document.createElement('form');
+        formAmountHTML.classList.add('product__form-amount');
+        infoHTML.appendChild(formAmountHTML);
 
-        const amount = document.createElement('input');
-        amount.classList.add('product__amount');
-        amount.setAttribute('type', 'number');
-        amount.setAttribute('min', '1');
-        amount.setAttribute('value', '1');
-        formAmount.appendChild(amount);
+        const amountHTML = document.createElement('input');
+        amountHTML.classList.add('product__amount');
+        amountHTML.setAttribute('type', 'number');
+        amountHTML.setAttribute('min', '1');
+        amountHTML.setAttribute('value', '1');
+        formAmountHTML.appendChild(amountHTML);
+        amountHTML.addEventListener('change', e => {
+            const amount = e.target.value;
+            product.amount = amount;
+        });
 
-        const addCartContent = document.createElement('div');
-        addCartContent.classList.add('product__add-cart');
-        info.appendChild(addCartContent);
+        const addCartContentHTML = document.createElement('div');
+        addCartContentHTML.classList.add('product__add-cart');
+        infoHTML.appendChild(addCartContentHTML);
 
-        const AddCartLink = document.createElement('a');
-        AddCartLink.classList.add('product__add-cart__link');
-        addCartContent.appendChild(AddCartLink);
+        const AddCartLinkHTML = document.createElement('a');
+        AddCartLinkHTML.classList.add('product__add-cart__link');
+        addCartContentHTML.appendChild(AddCartLinkHTML);
 
-        const addCartImg = document.createElement('img');
-        addCartImg.classList.add('product__add-cart__img');
-        addCartImg.setAttribute('src', product.icon);
-        addCartImg.setAttribute('widht', '30');
-        addCartImg.setAttribute('height', '30');
-        addCartImg.setAttribute('alt', 'añadir al carrito');
-        AddCartLink.appendChild(addCartImg);
+        const addCartImgHTML = document.createElement('img');
+        addCartImgHTML.classList.add('product__add-cart__img');
+        addCartImgHTML.setAttribute('src', product.icon);
+        addCartImgHTML.setAttribute('widht', '30');
+        addCartImgHTML.setAttribute('height', '30');
+        addCartImgHTML.setAttribute('alt', 'añadir al carrito');
+        AddCartLinkHTML.appendChild(addCartImgHTML);
     });
+
 });
