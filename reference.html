@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Description">
     <title>Yard Sale</title>
+    <link rel="preconnect" as="style" href="src/css/normalize.css">
+    <link rel="stylesheet" as="style" href="src/css/normalize.css">
     <link rel="preconnect" as="style" href="https://fonts.googleapis.com">
     <link rel="preconnect" as="style" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" as="style" href="build/css/app.css">
-    <link rel="stylesheet" as="style" href="build/css/app.css">
+    <link rel="preconnect" as="style" href="src/css/app.css">
+    <link rel="stylesheet" as="style" href="src/css/app.css">
 </head>
 <body>
     <header class="header">
@@ -22,37 +24,37 @@
 
         <!-- menu mobile ⬇️ -->
         <div id="menu--mobile" class="menu menu--mobile inactive">
-            <ul class="menu__lista menu__lista--mobile no-ul-style">
-                <li class="menu__element menu__element--title menu__element--mobile menu__element--title--mobile">Categories</li>
-                <li class="menu__element menu__element--mobile">
+            <ul class="menu__lista menu__lista--mobile">
+                <li class="menu__elemento menu__elemento--title menu__elemento--mobile menu__elemento--title--mobile">Categories</li>
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="all-link--menu" class="menu__link menu__link--mobile">All</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="clothes-link--menu" class="menu__link menu__link--mobile">Clothes</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="electronics-link--menu" class="menu__link menu__link--mobile">Electronics</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="furnitures-link--menu" class="menu__link menu__link--mobile">Furnitures</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="toys-link--menu" class="menu__link menu__link--mobile">Toys</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="other-link--menu" class="menu__link menu__link--mobile">Other</a>
                 </li>
     
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="my-orders-link--menu" class="menu__link menu__link--mobile">My orders</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="my-account-link--menu" class="menu__link menu__link--mobile">My account</a>
                 </li>
-                <li class="menu__element menu__element--mobile">
+                <li class="menu__elemento menu__elemento--mobile">
                     <a href="#" id="my-email-link--menu" class="menu__link menu__link--email menu__link--mobile menu__link--email--mobile">yeyo@example.com</a>
                 </li>
-                <li class="menu__element menu__element--sign menu__element--mobile menu__element--sign--mobile">
+                <li class="menu__elemento menu__elemento--sign menu__elemento--mobile menu__elemento--sign--mobile">
                     <a href="#" id="sign-up-link--menu" class="menu__link menu__link--sign menu__link--sign--mobile">Sign out</a>
                 </li>
             </ul>
@@ -60,7 +62,7 @@
         <!-- menu mobile ⬆️ -->
 
         <figure class="header__logo">
-            <img class="header__logo-img" src="src/assets/logo/logo_yard_sale.svg" width="120" height="40" alt="logo empresa">
+            <img class="header__logo-img" src="src/assets/logo/logo_yard_sale.svg" alt="logo empresa">
         </figure>
 
         <nav class="navegacion-principal">
@@ -74,23 +76,23 @@
 
         <div class="header__info">
             <a href="#" id="link-menu--desktop" class="header__email">yeyo@example.com</a>
-            <a href="#" id="link-shopping-cart" class="header__order">
+            <a href="#" id="link-menu--carrito" class="header__order">
                 <img src="src/assets/icon/icon_shopping_cart.svg" width="30" height="30" alt="carrito de la compra">
-                <div class="header__order-amount">+</div>
+                <div class="header__order-cantidad">+</div>
             </a>
         </div>
 
 
         <!-- menu desktop ⬇️ -->
         <div id="menu--desktop" class="menu menu--desktop inactive">
-            <ul class="menu__list menu__list--desktop">
-                <li class="menu__element menu__element--desktop">
+            <ul class="menu__lista menu__lista--desktop">
+                <li class="menu__elemento menu__elemento--desktop">
                     <a href="#" id="my-orders-link" class="menu__link menu__link--desktop">My orders</a>
                 </li>
-                <li class="menu__element menu__element--desktop">
+                <li class="menu__elemento menu__elemento--desktop">
                     <a href="#" id="my-account-link" class="menu__link menu__link--desktop">My account</a>
                 </li>
-                <li class="menu__element menu__element--sign menu__element--desktop menu__element--sign--desktop">
+                <li class="menu__elemento menu__elemento--sign menu__elemento--desktop menu__elemento--sign--desktop">
                     <a href="#" id="sign-up-link" class="menu__link menu__link--sign menu__link--sign--desktop">Sign out</a>
                 </li>
             </ul>
@@ -100,37 +102,37 @@
     </header>
     
     <!-- info carrito ⬇️ -->
-    <aside id="shopping-cart" class="order shopping-cart inactive">
-        <div class="order__content">
-            <div class="order__articles">
-                <div class="article">
-                    <div class="article__info-left">
-                        <figure class="article__image">
+    <aside id="menu--carrito" class="order shopping-cart inactive">
+        <div class="order__contenido">
+            <div class="order__articulos">
+                <div class="articulo">
+                    <div class="articulo__info-izda">
+                        <figure class="articulo__imagen">
                             <picture>
-                                <source srcset="build/img/producto-1.avif" type="image/avif">
-                                <source srcset="build/img/producto-1.webp" type="image/webp">
+                                <source srcset="src/assets/img/producto-1.avif" type="image/avif">
+                                <source srcset="src/assets/img/producto-1.webp" type="image/webp">
                             
-                                <img class="article__img" loading="lazy" src="build/img/producto-1.jpg" width="100" height="100" alt="imagen producto">
+                                <img class="articulo__img" loading="lazy" src="src/assets/img/producto-1.jpg" width="100" height="100" alt="imagen producto">
                             </picture>
                         </figure>
-                        <div class="article__info-left-right">
-                            <p class="article__name">Laptop</p>
-                            <div class="article__info-amount">
-                                <p class="article__amount">x1</p>
-                                <div class="article__amount-change">
-                                    <img class="article__amount-icon article__amount-icon--plus" src="src/assets/icon/icon_plus.svg" width="15" height="15" alt="sumar unidad de producto">
-                                    <img class="article__amount-icon article__amount-icon--minus" src="src/assets/icon/icon_minus.svg" width="15" height="15" alt="restar unidad de producto">
+                        <div class="articulo__info-izda-dcha">
+                            <p class="articulo__nombre">Laptop</p>
+                            <div class="articulo__info-amount">
+                                <p class="articulo__amount">x1</p>
+                                <div class="articulo__amount-change">
+                                    <img class="articulo__amount-icon articulo__amount-icon--plus" src="src/assets/icon/icon_plus.svg" width="15" height="15" alt="sumar unidad de producto">
+                                    <img class="articulo__amount-icon articulo__amount-icon--minus" src="src/assets/icon/icon_minus.svg" width="15" height="15" alt="restar unidad de producto">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="article__info-right">
-                        <p class="article__price article__price--cart">120€</p>
-                        <a href="#" class="article__remove">
-                            <img src="src/assets/icon/icon_close.png" width="15" height="15" alt="desechar article">
+                    <div class="articulo__info-dcha">
+                        <p class="articulo__precio articulo__precio--cesta">120€</p>
+                        <a href="#" class="articulo__remove">
+                            <img src="src/assets/icon/icon_close.png" width="15" height="15" alt="desechar articulo">
                         </a>
                     </div>
-                </div> <!-- article -->
+                </div> <!-- articulo -->
             </div>
             
             <div class="order__info">
@@ -138,19 +140,16 @@
                 <p class="order__total">360€</p>
             </div>
 
-            <form class="form-cart">
-                <input id="chekout" class="btn btn--primary form-cart__submit form-cart__submit--checkout" type="submit" value="Checkout">
-                <button id="reset-cart" class="btn--trash" type="reset">
-                    <img src="src/assets/icon/icon_trash.svg" width="30" height="30" alt="resetear carrito de compra">
-                </button>
+            <form class="formulario">
+                <input id="chekout" class="btn btn--primary formulario__submit formulario__submit--checkout" type="submit" value="Checkout">
             </form>
         </div>
     </aside>
     <!-- info carrito ⬆️ -->
 
     <!-- listado productos ⬇️ -->
-    <main class="principal">
-        <div id="grid-products" class="principal__grid">
+    <main class="inicio">
+        <div id="grid-productos" class="inicio__grid">
             <!-- productos a través de JS-->
         </div>
 
@@ -159,31 +158,31 @@
     <!-- listado productos ⬆️ -->
     
     <!-- vista ampliada de producto ⬇️ -->
-    <aside id="show-product" class="product-view inactive">
-        <div class="product-view__position">
-            <figure class="product-view__imagen">
-                <a id="close-show-product" class="product-view__cerrar" href="#">
-                    <img class="product-view__cerrar-img" src="src/assets/icon/icon_close.png" width="20" height="20" alt="cerrar vista ampliada de producto">
+    <aside id="show-product" class="vista-producto inactive">
+        <div class="vista-producto__position">
+            <figure class="vista-producto__imagen">
+                <a id="close-show-product" class="vista-producto__cerrar" href="#">
+                    <img class="vista-producto__cerrar-img" src="src/assets/icon/icon_close.png" width="20" height="20" alt="cerrar vista ampliada de producto">
                 </a>
                 <picture>
                     <source id="show-product-img--avif" srcset="" type="image/avif">
                     <source id="show-product-img--webp" srcset="" type="image/webp">
                     
-                    <img id="show-product-img--jpg" class="product-view__img" loading="lazy" src="" width="300" height="300" alt="imagen producto">
+                    <img id="show-product-img--jpg" class="vista-producto__img" loading="lazy" src="" width="300" height="300" alt="imagen producto">
                 </picture>
             </figure>
             
-            <div class="product-view__contenido">
-                <div class="product-view__info">
+            <div class="vista-producto__contenido">
+                <div class="vista-producto__info">
                     <p id="show-product-price" class="producto__precio"></p>
                     <p id="show-product-name" class="producto__nombre">Laptop</p>
                 </div>
                 
-                <p class="product-view__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="vista-producto__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa quidem eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 
-                <a href="#" id="add-to-cart--aside" class="product-view__link">
-                    <img class="product-view__link-img" src="src/assets/icon/bt-add-to-cart.svg" width="20" height="20" alt="añadir al carrito">
-                    <p class="product-view__link-text">Add to Cart</p>
+                <a href="#" id="add-to-cart--aside" class="vista-producto__link">
+                    <img class="vista-producto__link-img" src="src/assets/icon/bt-add-to-cart.svg" width="20" height="20" alt="add to cart">
+                    <p class="vista-producto__link-text">Add to Cart</p>
                 </a>
             </div>
         </div>

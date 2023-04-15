@@ -29,7 +29,7 @@ function css() {
 
 
 function img() {
-    return src( 'src/img/**/* ' )
+    return src( 'src/assets/img/**/* ' )
     .pipe( imagemin( { optimizacionLevel: 3} ) )
     .pipe( dest( 'build/img' ) );
 }
@@ -38,7 +38,7 @@ function versionWebp() {
     const opciones = {
         quality: 50
     }
-    return src( 'src/img/**/*.{png,jpg}' )
+    return src( 'src/assets/img/**/*.{png,jpg}' )
     .pipe( webp( opciones ) )
     .pipe( dest( 'build/img' ) )
 }
@@ -47,7 +47,7 @@ function versionAvif() {
     const opciones = {
         quality: 50
     }
-    return src( 'src/img/**/*.{png,jpg}' )
+    return src( 'src/assets/img/**/*.{png,jpg}' )
     .pipe( avif( opciones ) )
     .pipe( dest( 'build/img' ) );
 }
@@ -56,7 +56,7 @@ function versionAvif() {
 
 function dev() {
     watch( 'src/scss/**/*.scss', css);
-    watch( 'src/img/**/*', img);
+    watch( 'src/assets/img/**/*', img);
     
 };
 exports.css = css;

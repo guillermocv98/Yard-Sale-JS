@@ -1,0 +1,69 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.view-product {
+    position: absolute;
+    top: 7.5rem;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--light);
+
+    @include m.mq(600px) {
+        width: 30rem;
+        position: absolute;
+        right: 0;
+        border-bottom-left-radius: 1.5rem;
+        box-shadow: 0 10px 20px 2px v.$text;
+    }
+
+    &__image {
+        position: relative;
+        overflow: hidden;
+    }
+    &__close {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+
+        @include m.mq(600px) {
+            border-bottom-right-radius: 0;
+        }
+    }
+    &__content {
+        display: grid;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+    &__description {
+        font-size: v.$sm;
+        color: v.$text;
+    }
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        font-size: v.$sm;
+        font-weight: 700;
+        text-decoration: none;
+        color: v.$light;
+        background-color: v.$secondary;
+        border-radius: 1.5rem;
+    
+        transition: transform .5s ease;
+    }
+    &__link:hover {
+        transform: scale(1.05);
+    }
+    &__link-img {
+        width: 3rem;
+        height: 3rem;
+    }
+}

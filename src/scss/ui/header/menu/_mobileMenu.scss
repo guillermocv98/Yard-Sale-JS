@@ -1,0 +1,39 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.menu {
+    &--mobile {
+        position: absolute;
+        top: 7.5rem;
+        left: 0;
+        width: 100%;
+        max-width: 30rem;
+        padding: 2rem 2rem 0 2rem;
+        background-color: v.$light;
+        box-shadow: 0px 10px 20px 1px v.$text;
+    }
+    &__element {
+        &--mobile:nth-child(9) {
+            margin-block-end: 2rem;
+        } 
+        &--mobile:nth-child(8) {
+            padding-block-start: 2rem;
+            border-top: 1px solid v.$text;
+        }
+        &--title--mobile {
+            text-transform: uppercase;
+            margin-block-end: 2.5rem;
+        }
+    }
+    &__link--email--mobile {
+        font-size: v.$sm;
+        font-weight: 400;
+        color: v.$text;
+    }
+    &--mobile {
+        @include m.tablet {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.menu {
+    z-index: 3;
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &__element {
+        font-size: v.$md;
+        font-weight: 700;
+    }
+    &__link {
+        display: inline-block;
+        margin-block-end: 2rem;
+        text-decoration: none;
+        color: v.$dark;
+    }
+    &__link--sign {
+        font-size: v.$sm;    
+        color: v.$primary;
+    }
+}

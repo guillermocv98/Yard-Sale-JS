@@ -1,0 +1,111 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.order {
+    width: 100%;
+    max-width: 30rem;
+    padding: 2rem;
+    margin-inline: auto;
+
+    &__content {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 2rem;
+    }
+    &__articles {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    &.shopping-cart {
+        @include m.mq(600px) {
+            position: absolute;
+            right: 0;
+            z-index: 2;
+            background-color: v.$light;
+            box-shadow: 0 10px 20px 10px v.$back-grey;
+        }
+    }
+    &__info {    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background-color: v.$back-grey;
+        border-radius: 1.5rem;
+    }
+    &__total-text {
+        font-size: v.$md;
+        font-weight: 700;
+        color: v.$dark;
+    }
+    &__total {
+        font-size: v.$md;
+        font-weight: 700;
+    }
+}
+
+.article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: v.$md;
+
+    &__info-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__info,
+    &__image {
+        overflow: hidden;
+        max-width: 10rem;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1.5rem;                  
+    }
+    &__info-left-right {
+        display: grid;
+        gap: .5rem;
+        color: v.$text;
+    }
+    &__name {
+        font-weight: 500;
+    }
+    &__info-amount {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    &__amount-change {
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+    }
+    &__amount-icon{
+        background-color: v.$secondary;
+        border-radius: 50%;
+    }
+    &__amount-icon:hover {
+        cursor: pointer;
+    }
+    &__info-right {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    &__price {
+        font-weight: 700;
+        margin-inline-end: 1rem;
+    }
+
+}
+
+.form-cart {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+}

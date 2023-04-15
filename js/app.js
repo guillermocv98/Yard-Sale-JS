@@ -11,8 +11,8 @@ const linkMenuDesktop = document.querySelector('#link-menu--desktop');
 const menuDesktop = document.querySelector('#menu--desktop');
 
 
-const linkMenuCart = document.querySelector('#link-menu--carrito');
-const menuCart = document.querySelector('#menu--carrito');
+const linkMenuCart = document.querySelector('#link-shopping-cart');
+const menuCart = document.querySelector('#shopping-cart');
 
 
 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Variables
     const productList = [];
-    const divProducts = document.querySelector('#grid-productos');
+    const divProducts = document.querySelector('#grid-products');
     const description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos praesentium alias atque laudantium! Nam eligendi doloribus architecto error maxime!';
 
 
@@ -117,9 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
         productList.push({
             name: name,
             price: price,
-            image_1: `src/assets/img/producto-${index}.avif`,
-            image_2: `src/assets/img/producto-${index}.webp`,
-            image_3: `src/assets/img/producto-${index}.jpg`,
+            image_1: `build/img/product-${index}.avif`,
+            image_2: `build/img/product-${index}.webp`,
+            image_3: `build/img/product-${index}.jpg`,
             icon: 'src/assets/icon/add-to-cart.svg',
             description: description
         });
@@ -128,16 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Insertar en el html
     productList.forEach(product => {
-        const producto = document.createElement('div');
-        producto.classList.add('producto');
-        divProducts.appendChild(producto);
+        divProducts.querySelector('#grid-products');
 
-        const figure = document.createElement('figure');
-        figure.classList.add('producto__imagen');
-        producto.appendChild(figure);
+        const producto = document.createElement('div');
+        producto.classList.add('product');
+        divProducts.appendChild(producto);
         
         const picture = document.createElement('picture');
-        figure.appendChild(picture);
+        producto.appendChild(picture);
         
         const source1 = document.createElement('source');
         source1.setAttribute('src', product.image_1);
@@ -150,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         picture.appendChild(source2);
         
         const img = document.createElement('img');
-        img.classList.add('producto__img');
+        img.classList.add('product__img');
         img.setAttribute('src', product.image_3);
         img.setAttribute('width', '150');
         img.setAttribute('height', '150');
@@ -163,38 +161,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const content = document.createElement('div');
-        content.classList.add('producto__contenido');
+        content.classList.add('product__content');
         producto.appendChild(content);
 
         const info = document.createElement('div');
-        info.classList.add('producto__info');
+        info.classList.add('product__info');
         content.appendChild(info);
 
         const price = document.createElement('p');
-        price.classList.add('producto__precio');
+        price.classList.add('product__price');
         price.textContent = `${product.price}€`;
         info.appendChild(price);
 
         const name = document.createElement('p');
-        name.classList.add('producto__nombre');
+        name.classList.add('product__name');
         name.textContent = product.name;
         info.appendChild(name);
 
         const amount = document.createElement('input');
-        amount.classList.add('producto__cantidad');
+        amount.classList.add('product__amount');
         amount.setAttribute('type', 'number');
         content.appendChild(amount);
 
         const add_cart = document.createElement('div');
-        add_cart.classList.add('producto__add-carrito');
+        add_cart.classList.add('product__add-cart');
         content.appendChild(add_cart);
 
         const link = document.createElement('a');
-        link.classList.add('producto__add-carrito__link');
+        link.classList.add('product__add-cart__link');
         add_cart.appendChild(link);
 
         const add_img = document.createElement('img');
-        add_img.classList.add('producto__add-carrito__img');
+        add_img.classList.add('product__add-cart__img');
         add_img.setAttribute('src', product.icon);
         add_img.setAttribute('widht', '30');
         add_img.setAttribute('height', '30');

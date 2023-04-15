@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.menu {
+    &--desktop {
+        position: absolute;
+        top: 8.15rem;
+        right: 5.8rem;
+        width: 14rem;
+        height: auto;
+        padding: .5rem 2rem 0 2rem;
+        border: 1px solid v.$text;
+        border-top: 4px solid v.$light;
+        background-color: v.$light;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+
+        @include m.mqd(768px) {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    &__list--desktop {
+        text-align: end;
+    }
+    &__element--sign--desktop {
+        padding-block-start: 2rem;
+        border-top: 1px solid v.$text;
+    }
+}

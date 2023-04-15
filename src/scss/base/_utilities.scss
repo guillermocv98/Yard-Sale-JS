@@ -1,0 +1,98 @@
+@use 'variables' as v; 
+@use 'base/mixins' as m;
+
+.inactive {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn {
+    padding: 1.5rem;
+    font-size: v.$md;
+    font-weight: 700;
+    border-radius: .5rem;
+    transition: transform .3s;
+}
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.btn--primary {
+    margin-block-start: 1rem;
+    color: v.$light;
+    background-color: v.$secondary;
+    border: none;
+}
+.btn--secondary {
+    margin-block-start: 2rem;
+    color: v.$primary;
+    background-color: v.$light;
+    border: 1px solid v.$secondary;
+}
+.btn--trash {
+    height: 4.698rem;
+    margin-block-start: 1rem;
+    border: none;
+    border-radius: .5rem;
+    transition: transform .3s ease-in-out;
+}
+.btn--trash:hover {
+    cursor: pointer;
+    transform: scale(.95);
+}
+
+
+// TailUtilities
+.bg-primary {
+    background-color: v.$primary;
+}
+.bg-secondary {
+    background-color: v.$secondary;
+}
+.fw-700 {
+    font-weight: 700;
+}
+.t-center {
+    text-align: center;
+}
+.mw-30 {
+    max-width: 30rem;
+}
+.pd-2 {
+    padding: 2rem;
+}
+.pdbk-2 {
+    padding-block: 2rem;
+}
+.pdbk-5 {
+    padding-block: 5rem;
+}
+.mt-0 {
+    margin-block-start: 0;
+}
+.mt-2 {
+    margin-block-start: 2rem;
+}
+.mgr-2 {
+    margin-inline-end: 2rem;
+}
+.mb-2 {
+    margin-block-end: 2rem;
+}
+.mb-3 {
+    margin-block-end: 3rem;
+}
+.mgl-2 {
+    margin-block-end: 2rem
+}
+
+
+.no-ul-style {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.creando {height: 30rem;}

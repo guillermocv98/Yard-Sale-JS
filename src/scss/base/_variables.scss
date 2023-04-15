@@ -1,25 +1,32 @@
 // Fuentes
-$fuente_principal: 'Lato', sans-serif;
-$fuente_cursiva: 'Italianno', sans-serif;
+$font_principal: 'Quicksand', sans-serif;
+$font_secondary: 'Roboto', sans-serif;
+
+/* Font-size */
+$sm: 1.4rem;
+$md: 1.6rem;
+$lg: 1.8rem;
 
 // Tamaño de Media Queries
-$telefono: 480px;
-$telefonoM: 550px;
-$telefonoL: 630px;
-$telefonoXL: 700px;
+$phone: 450px;
+$phoneHD: 650px;
 $tablet: 768px;
 $desktop: 1024px;
-$desktopM: 1200px;
-$desktopL: 1600px;
-$desktopXL: 1900px;
-$desktopXXL: 2200px;
 
 // Colores
-$primario: #8ed3cc;
-$secundario: #e082a8; 
-$negro: #000;
-$blanco: #FFFFFF;
-$gris: #979797;
-$grisClaro: #f8f8f8;
+$primary: #5eb46a;
+$secondary: #ACD9B2; 
+
+$text: #858585;
+
+$dark: #333;
+$light: #FFF;
+
+$positive: #11a93c;
+$negative: rgb(183, 10, 10);
+
+$back-grey: #f5f5f5;
+$dark-back-grey: #f8f8f8;
 
 $gap: 5rem;
+

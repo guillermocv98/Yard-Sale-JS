@@ -1,0 +1,22 @@
+@use 'variables' as v; 
+@use 'base/mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    margin: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+}
+  
+body {
+    font-family: v.$font_principal;
+    color: v.$dark;
+    font-size: v.$sm;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}

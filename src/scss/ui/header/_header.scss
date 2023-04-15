@@ -1,2 +1,44 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid v.$text;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    &__email {
+        display: none;
+        @include m.tablet {
+            display: block;
+            font-size: v.$sm;
+            text-decoration: none;
+            color: v.$dark;
+        }
+    }
+    &__order {
+        position: relative;
+        text-decoration: none;
+    }
+    &__order-amount {
+        position: absolute;
+        top: -1.4rem;
+        right: -.8rem;
+        z-index: 2;
+        display: grid;
+        place-content: center;
+        padding: .5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: v.$dark;
+        background-color: v.$secondary;
+        border-radius: 50%;
+    }
+}

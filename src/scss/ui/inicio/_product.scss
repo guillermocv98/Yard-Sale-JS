@@ -1,0 +1,53 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.product {
+    display: grid;
+    gap: 1rem;
+    max-width: 20rem;
+
+    &__image {
+        overflow: hidden;
+        height: 100%;
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 1.5rem;                  
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__info {
+        min-width: 6rem;
+    }
+    &__price {
+        font-size: v.$md;
+        font-weight: 700;
+    }
+    &__name {
+        font-size: v.$sm;
+        font-size: 500;
+        color: var(--text);
+    }
+    &__amount {
+        width: 25%;
+        padding: .5rem;
+        font-size: 1.8rem;
+        color: v.$text;
+        border: 1px solid v.$secondary;
+        outline: none;
+    }
+    &__add-cart__img {
+        transition: transform .5s ease;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    }
+
+}
