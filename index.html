@@ -14,11 +14,11 @@
 </head>
 <body>
     <header class="header">
-        <!-- btn menu mobile ⬇️ -->
+        <!-- link menu mobile ⬇️ -->
         <a href="#" id="link-menu--mobile" class="menu__btn">
             <img src="src/assets/icon/icon_menu.svg" alt="icono menu">
         </a>
-        <!-- btn menu mobile ⬇⬆️ -->
+        <!-- link menu mobile ⬇⬆️ -->
 
         <!-- menu mobile ⬇️ -->
         <div id="menu--mobile" class="menu menu--mobile inactive">
@@ -73,11 +73,15 @@
         </nav>
 
         <div class="header__info">
+            <!-- link menu desktop ⬇️ -->
             <a href="#" id="link-menu--desktop" class="header__email">yeyo@example.com</a>
+            <!-- link menu desktop ⬆️ -->
+            <!-- link shopping cart ⬇️ -->
             <a href="#" id="link-shopping-cart" class="header__order">
                 <img src="src/assets/icon/icon_shopping_cart.svg" width="30" height="30" alt="carrito de la compra">
-                <div class="header__order-amount">+</div>
+                <div id="shopping-cart-total-amount" class="header__order-amount">+</div>
             </a>
+            <!-- link shopping cart ⬇️ -->
         </div>
 
 
@@ -135,7 +139,7 @@
             
             <div class="order__info">
                 <p class="order__total-text">Total</p>
-                <p class="order__total">360€</p>
+                <p id="shopping-cart-total-price" class="order__total"></p>
             </div>
 
             <form class="form-cart">
@@ -176,11 +180,12 @@
             <div class="product-view__content">
                 <div class="product__info">
                     <div class="product__data">
+                        <p id="show-product-id" class="inactive"></p>
                         <p id="show-product-price" class="product__price"></p>
                         <p id="show-product-name" class="product__name">Laptop</p>
                     </div>
                     <form class="product__form-amount">
-                        <input class="product__amount" type="number" min="1" value="1">
+                        <input id="show-product-amount" class="product__amount" type="number" min="1" value="1">
                     </form>
                 </div>
                 
