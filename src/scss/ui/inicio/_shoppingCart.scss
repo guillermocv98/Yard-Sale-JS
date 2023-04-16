@@ -3,7 +3,7 @@
 
 .order {
     width: 100%;
-    max-width: 30rem;
+    max-width: 35rem;
     padding: 2rem;
     margin-inline: auto;
 
@@ -18,7 +18,7 @@
         gap: 2rem;
     }
     &.shopping-cart {
-        @include m.mq(600px) {
+        @include m.phoneH {
             position: absolute;
             right: 0;
             z-index: 2;
@@ -76,14 +76,18 @@
         font-weight: 500;
     }
     &__info-amount {
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+    &__info-amount:hover {
+        cursor: pointer;
     }
     &__amount-change {
         display: flex;
         align-items: flex-end;
-        gap: 1rem;
+        gap: .5rem;
     }
     &__amount-icon{
         background-color: v.$secondary;

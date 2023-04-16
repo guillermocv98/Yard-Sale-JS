@@ -16,6 +16,12 @@
         @content;
     }
 }
+
+@mixin phoneH {
+    @media (min-width: v.$phoneH) {
+        @content;
+    }
+}
 @mixin phoneHD {
     @media (min-width: v.$phoneHD) {
         @content;
