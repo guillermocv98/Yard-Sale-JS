@@ -1,7 +1,7 @@
 // -- Show product -- //
 
-// Link apertura en la línea 6 de la inserción del HTML //
-const linkCloseShowProductHTML = document.querySelector('#close-show-product')
+// Link apertura en la línea 57 del archivo "dataBase" //
+const showProductCloseLinkHTML = document.querySelector('#close-show-product')
 const showProductHTML = document.querySelector('#show-product');
 
 const showProductImgAvifHTML = document.querySelector('#show-product-img--avif');
@@ -12,24 +12,28 @@ const showProductPriceHTML = document.querySelector('#show-product-price');
 const showProductNameHTML = document.querySelector('#show-product-name');
 const showProductAmountHTML = document.querySelector('#show-product-amount');
 
-const linkAddToCartAsideHTML = document.querySelector('#add-to-cart--aside');
+const showProductAddtoCartLinkHTML = document.querySelector('#add-to-cart--aside');
 
 document.addEventListener('DOMContentLoaded', e => {
 
     // Evento apertura ShowProduct en la línea 6 de la inserción del HTML //
     
-    linkCloseShowProductHTML.addEventListener('click', e => {
+    showProductCloseLinkHTML.addEventListener('click', e => {
         closeView(showProductHTML)
     });
 
     showProductAmountHTML.addEventListener('change', e => {
+        const amount = Number(e.target.value);
+        const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
+        updateProductAmount(product, amount);
+
         // Enlazar el e.value con el de su producto correspondiente.
     });
     
-    linkAddToCartAsideHTML.addEventListener('click', e => {
+    showProductAddtoCartLinkHTML.addEventListener('click', e => {
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         updateShoppingCartTotalAmount('plus', product.amount);
-
+        resetProductAmount(product);
         closeView(showProductHTML);
     }); 
 
@@ -51,6 +55,8 @@ function showProductChargeData(product) {
     // Cantidad
     updateShowProductAmount(product.amount);
 };
+
 function updateShowProductAmount(amount) {
     showProductAmountHTML.value = amount;
 }
+

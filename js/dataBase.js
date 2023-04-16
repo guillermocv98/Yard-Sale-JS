@@ -89,8 +89,11 @@ listProducts.forEach(product => {
     amountHTML.setAttribute('value', '1');
     formAmountHTML.appendChild(amountHTML);
     amountHTML.addEventListener('change', e => {
+        // Guardo el valor del input de cantidad
         const amount = Number(e.target.value);
-        product.amount = amount;
+        // Actualizo el elemento cantidad del objeto product en cuestión
+        updateProductAmount(product, amount);
+        // Actualizo el amount del showProduct
         updateShowProductAmount(amount);
     });
 
@@ -108,6 +111,7 @@ listProducts.forEach(product => {
         updateShoppingCartTotalAmount('plus', amount);
         formAmountHTML.reset();
         resetProductAmount(product);
+        updateShowProductAmount(product.amount);
     });
 
     const addCartImgHTML = document.createElement('img');
@@ -117,10 +121,14 @@ listProducts.forEach(product => {
     addCartImgHTML.setAttribute('height', '30');
     addCartImgHTML.setAttribute('alt', 'añadir al carrito');
     AddCartLinkHTML.appendChild(addCartImgHTML);
+
 });
 
 
 // FUNCIONES 
+function updateProductAmount(product, amount) {
+    product.amount = amount;
+}
 
 function resetProductAmount(product) {
     product.amount = 1;
