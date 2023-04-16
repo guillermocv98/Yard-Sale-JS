@@ -7,32 +7,34 @@ const showProductHTML = document.querySelector('#show-product');
 const showProductImgAvifHTML = document.querySelector('#show-product-img--avif');
 const showProductImgWebpHTML = document.querySelector('#show-product-img--webp');
 const showProductImgJpgHTML= document.querySelector('#show-product-img--jpg');
-const showProductIdHTML = document.querySelector('#show-product-id')
+const showProductIdHTML = document.querySelector('#show-product-id');
 const showProductPriceHTML = document.querySelector('#show-product-price');
 const showProductNameHTML = document.querySelector('#show-product-name');
 const showProductAmountHTML = document.querySelector('#show-product-amount');
 
+
+
 const showProductAddtoCartLinkHTML = document.querySelector('#add-to-cart--aside');
 
 document.addEventListener('DOMContentLoaded', e => {
-
-    // Evento apertura ShowProduct en la línea 6 de la inserción del HTML //
+    
+    // Evento apertura ShowProduct en la línea 57 del archivo dataBase //
     
     showProductCloseLinkHTML.addEventListener('click', e => {
         closeView(showProductHTML)
     });
-
+    
     showProductAmountHTML.addEventListener('change', e => {
         const amount = Number(e.target.value);
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
+        console.log(product);
         updateProductAmount(product, amount);
-
         // Enlazar el e.value con el de su producto correspondiente.
     });
     
     showProductAddtoCartLinkHTML.addEventListener('click', e => {
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
-        updateShoppingCartTotalAmount('plus', product.amount);
+        updateShoppingCartList(product);
         resetProductAmount(product);
         closeView(showProductHTML);
     }); 

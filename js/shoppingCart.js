@@ -6,7 +6,6 @@ const shoppingCartTotalAmounttHTML = document.querySelector('#shopping-cart-tota
 const shoppingCartTotalPricetHTML = document.querySelector('#shopping-cart-total-price');
 
 
-const listCart = [];
 
 // ADDEVENTLISTENERS
 document.addEventListener('DOMContentLoaded', e => {
@@ -42,6 +41,21 @@ function updateShoppingCartTotalAmount(action, productAmount) {
 
 
 
+// LISTA DE OBJETOS DEL CARRITO
+const listShoppingCart = [];
 
+async function updateShoppingCartList(product) {
+    listShoppingCart.push(product);       
+    console.log(listShoppingCart);
+    const totalPrice = product.totalPrice();
+    const amount = product.amount;
+    updateShoppingCartTotalPrice('plus', totalPrice);
+    updateShoppingCartTotalAmount('plus', amount);
+    
+};
+
+function addToCart(product) {
+
+}
 
 

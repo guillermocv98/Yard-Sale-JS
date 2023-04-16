@@ -89,11 +89,7 @@ listProducts.forEach(product => {
     amountHTML.setAttribute('value', '1');
     formAmountHTML.appendChild(amountHTML);
     amountHTML.addEventListener('change', e => {
-        // Guardo el valor del input de cantidad
         const amount = Number(e.target.value);
-        // Actualizo el elemento cantidad del objeto product en cuestión
-        updateProductAmount(product, amount);
-        // Actualizo el amount del showProduct
         updateShowProductAmount(amount);
     });
 
@@ -105,13 +101,15 @@ listProducts.forEach(product => {
     AddCartLinkHTML.classList.add('product__add-cart__link');
     addCartContentHTML.appendChild(AddCartLinkHTML);
     AddCartLinkHTML.addEventListener('click', e => {
-        const totalPrice = product.totalPrice();
-        const amount = product.amount;
-        updateShoppingCartTotalPrice('plus', totalPrice);
-        updateShoppingCartTotalAmount('plus', amount);
-        formAmountHTML.reset();
-        resetProductAmount(product);
+        
+        const amount = Number(e.target.parentElement.parentElement.parentElement.children[1].children[0].value);
+        // addToCart(product, amount);
+        updateProductAmount(product, amount);
+        updateShoppingCartList(product);
+        resetProductAmount(product); // Falta asincronismo;
         updateShowProductAmount(product.amount);
+        formAmountHTML.reset();
+
     });
 
     const addCartImgHTML = document.createElement('img');
@@ -126,8 +124,12 @@ listProducts.forEach(product => {
 
 
 // FUNCIONES 
-function updateProductAmount(product, amount) {
-    product.amount = amount;
+function updateProductAmount(argProduct, amount) {
+    listProducts.forEach( product => {
+        if(product.id == argProduct.id) {
+            product.amount = amount;
+        }
+    });
 }
 
 function resetProductAmount(product) {
