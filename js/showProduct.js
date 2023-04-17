@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', e => {
     showProductAmountHTML.addEventListener('change', e => {
         const amount = Number(e.target.value);
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
-        console.log(product);
         updateProductAmount(product, amount);
         // Enlazar el e.value con el de su producto correspondiente.
     });
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', e => {
     showProductAddtoCartLinkHTML.addEventListener('click', e => {
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         updateShoppingCartList(product);
-        resetProductAmount(product);
+        // resetProductAmount(product);
         closeView(showProductHTML);
     }); 
 
@@ -61,4 +60,6 @@ function showProductChargeData(product) {
 function updateShowProductAmount(amount) {
     showProductAmountHTML.value = amount;
 }
+
+
 

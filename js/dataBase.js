@@ -20,7 +20,7 @@ function createProduct(id, name, price, index, description) {
         image_3: `build/img/product-${index}.jpg`,
         icon: 'src/assets/icon/add-to-cart.svg',
         description: description,
-        amount: 1,
+        amount: 0,
         totalPrice: function () {
             return this.price * this.amount;
         },
@@ -56,8 +56,10 @@ listProducts.forEach(product => {
     pictureHTML.appendChild(imgHTML);
     // Desplegable vista producto
     imgHTML.addEventListener('click', e => {
-        openView(showProductHTML);
+        const amount = Number(e.target.parentElement.parentElement.children[1].children[1].children[0].value);
         showProductChargeData(product);
+        updateShowProductAmount(amount);
+        openView(showProductHTML);
     });
 
     const infoHTML = document.createElement('div');
@@ -103,11 +105,9 @@ listProducts.forEach(product => {
     AddCartLinkHTML.addEventListener('click', e => {
         
         const amount = Number(e.target.parentElement.parentElement.parentElement.children[1].children[0].value);
-        // addToCart(product, amount);
         updateProductAmount(product, amount);
         updateShoppingCartList(product);
-        resetProductAmount(product); // Falta asincronismo;
-        updateShowProductAmount(product.amount);
+        updateShowProductAmount(1);
         formAmountHTML.reset();
 
     });
@@ -123,15 +123,12 @@ listProducts.forEach(product => {
 });
 
 
-// FUNCIONES 
-function updateProductAmount(argProduct, amount) {
-    listProducts.forEach( product => {
-        if(product.id == argProduct.id) {
-            product.amount = amount;
-        }
-    });
-}
+// FUNCIONES
 
-function resetProductAmount(product) {
-    product.amount = 1;
-}
+function updateProductAmount(product, amount) {
+    product.amount = amount;
+};
+
+// function resetProductAmount(product) {
+//     product.amount = 0;
+// }

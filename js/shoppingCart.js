@@ -44,18 +44,23 @@ function updateShoppingCartTotalAmount(action, productAmount) {
 // LISTA DE OBJETOS DEL CARRITO
 const listShoppingCart = [];
 
-async function updateShoppingCartList(product) {
-    listShoppingCart.push(product);       
-    console.log(listShoppingCart);
-    const totalPrice = product.totalPrice();
-    const amount = product.amount;
+function updateShoppingCartList(product) {
+    const cartProduct = { ... product};
+    if (!listShoppingCart.some( article => article.id == cartProduct.id)) {
+        listShoppingCart.push(cartProduct);       
+    } else {
+        const article = listShoppingCart.find( article => article.id == cartProduct.id);
+        article.amount += cartProduct.amount;
+    }
+    const totalPrice = cartProduct.totalPrice();
+    const amount = cartProduct.amount;
     updateShoppingCartTotalPrice('plus', totalPrice);
     updateShoppingCartTotalAmount('plus', amount);
-    
+    addToCart(listShoppingCart);
 };
 
-function addToCart(product) {
-
-}
+function addToCart(x) {
+    console.log(x)
+};
 
 
