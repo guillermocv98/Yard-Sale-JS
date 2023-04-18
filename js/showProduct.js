@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', e => {
     showProductAddtoCartLinkHTML.addEventListener('click', e => {
 
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
+        const amount = Number(showProductAmountHTML.value);
+        updateProductAmount(product, amount);
         updateShoppingCartList(product);
         // Resetear formAmountHTML
         closeView(showProductHTML);
@@ -63,9 +65,8 @@ function showProductChargeData(product) {
     updateShowProductAmount(product.amount);
 };
 
-function updateShowProductAmount(amount, event = false) {
+function updateShowProductAmount(amount) {
     showProductAmountHTML.value = amount;
-    if(true) {showProductAmountHTML.dispatchEvent(new Event('change'));}
 }
 
 

@@ -95,7 +95,7 @@ listProducts.forEach(product => {
     amountHTML.addEventListener('change', e => {
 
         const amount = Number(e.target.value);
-        updateShowProductAmount(amount, true);
+        updateShowProductAmount(amount);
 
     });
 
@@ -109,9 +109,7 @@ listProducts.forEach(product => {
     AddCartLinkHTML.addEventListener('click', e => {
         
         const amount = Number(e.target.parentElement.parentElement.parentElement.children[1].children[0].value);
-        console.log(product);
         updateProductAmount(product, amount);
-        console.log(product);
         updateShoppingCartList(product);
         updateShowProductAmount(1);
         formAmountHTML.reset();

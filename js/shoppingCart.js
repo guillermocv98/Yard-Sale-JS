@@ -45,7 +45,7 @@ function updateShoppingCartTotalAmount(action, productAmount) {
 const listShoppingCart = [];
 
 function updateShoppingCartList(product) {
-    const cartProduct = { ... product};
+    const cartProduct = { ...product };
     if (!listShoppingCart.some( article => article.id == cartProduct.id)) {
         listShoppingCart.push(cartProduct);       
     } else {
