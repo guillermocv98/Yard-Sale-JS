@@ -56,10 +56,12 @@ listProducts.forEach(product => {
     pictureHTML.appendChild(imgHTML);
     // Desplegable vista producto
     imgHTML.addEventListener('click', e => {
+        
         const amount = Number(e.target.parentElement.parentElement.children[1].children[1].children[0].value);
         showProductChargeData(product);
         updateShowProductAmount(amount);
         openView(showProductHTML);
+
     });
 
     const infoHTML = document.createElement('div');
@@ -91,8 +93,10 @@ listProducts.forEach(product => {
     amountHTML.setAttribute('value', '1');
     formAmountHTML.appendChild(amountHTML);
     amountHTML.addEventListener('change', e => {
+
         const amount = Number(e.target.value);
-        updateShowProductAmount(amount);
+        updateShowProductAmount(amount, true);
+
     });
 
     const addCartContentHTML = document.createElement('div');
@@ -105,7 +109,9 @@ listProducts.forEach(product => {
     AddCartLinkHTML.addEventListener('click', e => {
         
         const amount = Number(e.target.parentElement.parentElement.parentElement.children[1].children[0].value);
+        console.log(product);
         updateProductAmount(product, amount);
+        console.log(product);
         updateShoppingCartList(product);
         updateShowProductAmount(1);
         formAmountHTML.reset();

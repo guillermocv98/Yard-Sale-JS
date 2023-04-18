@@ -21,21 +21,27 @@ document.addEventListener('DOMContentLoaded', e => {
     // Evento apertura ShowProduct en la línea 57 del archivo dataBase //
     
     showProductCloseLinkHTML.addEventListener('click', e => {
+
         closeView(showProductHTML)
+
     });
     
     showProductAmountHTML.addEventListener('change', e => {
+
         const amount = Number(e.target.value);
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         updateProductAmount(product, amount);
         // Enlazar el e.value con el de su producto correspondiente.
+
     });
     
     showProductAddtoCartLinkHTML.addEventListener('click', e => {
+
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         updateShoppingCartList(product);
-        // resetProductAmount(product);
+        // Resetear formAmountHTML
         closeView(showProductHTML);
+
     }); 
 
 });
@@ -57,8 +63,9 @@ function showProductChargeData(product) {
     updateShowProductAmount(product.amount);
 };
 
-function updateShowProductAmount(amount) {
+function updateShowProductAmount(amount, event = false) {
     showProductAmountHTML.value = amount;
+    if(true) {showProductAmountHTML.dispatchEvent(new Event('change'));}
 }
 
 
