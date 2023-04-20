@@ -106,35 +106,8 @@
     <!-- info carrito ⬇️ -->
     <aside id="shopping-cart" class="order shopping-cart inactive">
         <div class="order__content">
-            <div class="order__articles">
-                <div class="article">
-                    <div class="article__info-left">
-                        <figure class="article__image">
-                            <picture>
-                                <source srcset="build/img/producto-1.avif" type="image/avif">
-                                <source srcset="build/img/producto-1.webp" type="image/webp">
-                            
-                                <img class="article__img" loading="lazy" src="build/img/producto-1.jpg" width="100" height="100" alt="imagen producto">
-                            </picture>
-                        </figure>
-                        <div class="article__info-left-right">
-                            <p class="article__name">Laptop</p>
-                            <div class="article__info-amount">
-                                <p class="article__amount">x10</p>
-                                <div class="article__amount-change">
-                                    <img class="article__amount-icon article__amount-icon--plus" src="src/assets/icon/icon_plus.svg" width="15" height="15" alt="sumar unidad de producto">
-                                    <img class="article__amount-icon article__amount-icon--minus" src="src/assets/icon/icon_minus.svg" width="15" height="15" alt="restar unidad de producto">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="article__info-right">
-                        <p class="article__price article__price--cart">120€</p>
-                        <a href="#" class="article__remove">
-                            <img src="src/assets/icon/icon_close.png" width="15" height="15" alt="desechar article">
-                        </a>
-                    </div>
-                </div> <!-- article -->
+            <div id="div-articles" class="order__articles">
+                <!-- articles desde JS-->
             </div>
             
             <div class="order__info">

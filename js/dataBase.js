@@ -1,7 +1,8 @@
 // Variables
 const listProducts = [];
-const divProductsHTML = document.querySelector('#grid-products');
 const description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos praesentium alias atque laudantium! Nam eligendi doloribus architecto error maxime!';
+
+const divProductsHTML = document.querySelector('#grid-products');
 
 
 // Crear base de datos
@@ -110,7 +111,7 @@ listProducts.forEach(product => {
         
         const amount = Number(e.target.parentElement.parentElement.parentElement.children[1].children[0].value);
         updateProductAmount(product, amount);
-        updateShoppingCartList(product);
+        addToCart(product);
         updateShowProductAmount(1);
         formAmountHTML.reset();
 
@@ -123,6 +124,10 @@ listProducts.forEach(product => {
     addCartImgHTML.setAttribute('height', '30');
     addCartImgHTML.setAttribute('alt', 'añadir al carrito');
     AddCartLinkHTML.appendChild(addCartImgHTML);
+
+    document.querySelector('#add-to-cart--aside').addEventListener('click', e => {
+        formAmountHTML.reset();
+    });
 
 });
 

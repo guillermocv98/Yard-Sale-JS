@@ -84,6 +84,9 @@
     &__info-amount:hover {
         cursor: pointer;
     }
+    &__amount {
+        min-width: 2.4rem;
+    }
     &__amount-change {
         display: flex;
         align-items: flex-end;
@@ -104,6 +107,12 @@
     &__price {
         font-weight: 700;
         margin-inline-end: 1rem;
+    }
+    &__remove {
+        display: grid;
+        place-items: center;
+        width: 1.5rem;
+        border-radius: 50%;
     }
 
 }

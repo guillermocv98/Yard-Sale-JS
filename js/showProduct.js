@@ -11,10 +11,8 @@ const showProductIdHTML = document.querySelector('#show-product-id');
 const showProductPriceHTML = document.querySelector('#show-product-price');
 const showProductNameHTML = document.querySelector('#show-product-name');
 const showProductAmountHTML = document.querySelector('#show-product-amount');
-
-
-
 const showProductAddtoCartLinkHTML = document.querySelector('#add-to-cart--aside');
+
 
 document.addEventListener('DOMContentLoaded', e => {
     
@@ -31,7 +29,6 @@ document.addEventListener('DOMContentLoaded', e => {
         const amount = Number(e.target.value);
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         updateProductAmount(product, amount);
-        // Enlazar el e.value con el de su producto correspondiente.
 
     });
     
@@ -40,8 +37,7 @@ document.addEventListener('DOMContentLoaded', e => {
         const product = listProducts.find( product => product.id == showProductIdHTML.textContent);
         const amount = Number(showProductAmountHTML.value);
         updateProductAmount(product, amount);
-        updateShoppingCartList(product);
-        // Resetear formAmountHTML
+        addToCart(product);
         closeView(showProductHTML);
 
     }); 
