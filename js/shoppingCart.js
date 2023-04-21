@@ -20,47 +20,8 @@ document.addEventListener('DOMContentLoaded', e => {
 
 // FUNCIONES
 
-let totalPrice = 0;
-function updateShoppingCartTotalPrice(action, productTotalPrice) {
-    if(action == 'plus') {
-        totalPrice += productTotalPrice;
-    } else if (action == 'minus') {
-        if (totalPrice - productTotalPrice <= 0) {
-            shoppingCartTotalPricetHTML.textContent = '';
-            return;
-        }
-        totalPrice -= productTotalPrice;
-    }
-    shoppingCartTotalPricetHTML.textContent = `${totalPrice}€`;
-};
-
-function resetShoppingCartTotalAmount() {
-    shoppingCartTotalAmountHTML.textContent = '+';
-};
-
-let totalAmount = 0;
-function updateShoppingCartTotalAmount(action, productAmount) {
-    if(action == 'plus') {
-        totalAmount += productAmount;
-    } else if (action == 'minus') {
-        if (totalAmount - productAmount <= 0) {
-            shoppingCartTotalAmountHTML.textContent = '+';
-            return;
-        }
-        totalAmount -= productAmount;
-    }
-    shoppingCartTotalAmountHTML.textContent = totalAmount;
-};
-
-function resetShoppingCartTotalPrice() {
-    shoppingCartTotalPricetHTML.textContent = '';
-};
-
-
-// LISTA DE OBJETOS DEL CARRITO
 
 let listShoppingCart = [];
-
 function addToCart(product) {
 
     const cartProduct = { ...product };
@@ -76,184 +37,221 @@ function addToCart(product) {
     updateShoppingCartTotalAmount('plus', amount);
     
     listShoppingCart.forEach( product => {
-        myCreateArticle(product);
+        createArticle(product);
     });
 };
 
 
-
-
-function createArticle() {
-    const listArticleId = [];
-    let amountHTML;
+let listArticleId = [];
+let amountHTML;
+function createArticle(article) {
     
-    function createArticleIntern(product) {
+    if (!listArticleId.includes(article.id)) {
         
+        listArticleId.push(article.id);
         
-        if (!listArticleId.includes(product.id)) {
-
-            listArticleId.push(product.id);
-            
-            const divArticlesHTML = document.querySelector('#div-articles');
-
-            const articleHTML = document.createElement('div');
-            articleHTML.classList.add('article');
-            divArticlesHTML.appendChild(articleHTML);
+        const divArticlesHTML = document.querySelector('#div-articles');
         
-            const infoLeftHTML = document.createElement('div');
-            infoLeftHTML.classList.add('article__info-left');
-            articleHTML.appendChild(infoLeftHTML);
+        const articleHTML = document.createElement('div');
+        articleHTML.classList.add('article');
+        divArticlesHTML.appendChild(articleHTML);
         
-            const figureHTML = document.createElement('figure');
-            figureHTML.classList.add('article__image');
-            infoLeftHTML.appendChild(figureHTML);
+        const infoLeftHTML = document.createElement('div');
+        infoLeftHTML.classList.add('article__info-left');
+        articleHTML.appendChild(infoLeftHTML);
         
-            const pictureHTML = document.createElement('picture');
-            figureHTML.appendChild(pictureHTML);
+        const figureHTML = document.createElement('figure');
+        figureHTML.classList.add('article__image');
+        infoLeftHTML.appendChild(figureHTML);
         
-            const sourceHTML1 = document.createElement('source');
-            sourceHTML1.setAttribute('src', product.image_1);
-            sourceHTML1.setAttribute('type', 'image/avif');
-            pictureHTML.appendChild(sourceHTML1);
-            
-            const sourceHTML2 = document.createElement('source');
-            sourceHTML2.setAttribute('src', product.image_2);
-            sourceHTML2.setAttribute('type', 'image/webp');
-            pictureHTML.appendChild(sourceHTML2);
-            
-            const imgHTML = document.createElement('img');
-            imgHTML.classList.add('product__img');
-            imgHTML.setAttribute('src', product.image_3);
-            imgHTML.setAttribute('width', '100');
-            imgHTML.setAttribute('height', '100');
-            imgHTML.setAttribute('alt', 'imagen producto');
-            pictureHTML.appendChild(imgHTML);
+        const pictureHTML = document.createElement('picture');
+        figureHTML.appendChild(pictureHTML);
         
-            const infoLeftRightHTML = document.createElement('div');
-            infoLeftRightHTML.classList.add('article__info-left-right');
-            infoLeftHTML.appendChild(infoLeftRightHTML);
+        const sourceHTML1 = document.createElement('source');
+        sourceHTML1.setAttribute('src', article.image_1);
+        sourceHTML1.setAttribute('type', 'image/avif');
+        pictureHTML.appendChild(sourceHTML1);
         
-            const nameHTML = document.createElement('p');
-            nameHTML.classList.add('article__name');
-            nameHTML.textContent = product.name;
-            infoLeftRightHTML.appendChild(nameHTML);
+        const sourceHTML2 = document.createElement('source');
+        sourceHTML2.setAttribute('src', article.image_2);
+        sourceHTML2.setAttribute('type', 'image/webp');
+        pictureHTML.appendChild(sourceHTML2);
         
-            const infoAmountHTML = document.createElement('div');
-            infoAmountHTML.classList.add('article__info-amount');
-            infoLeftRightHTML.appendChild(infoAmountHTML);
+        const imgHTML = document.createElement('img');
+        imgHTML.classList.add('product__img');
+        imgHTML.setAttribute('src', article.image_3);
+        imgHTML.setAttribute('width', '100');
+        imgHTML.setAttribute('height', '100');
+        imgHTML.setAttribute('alt', 'imagen producto');
+        pictureHTML.appendChild(imgHTML);
         
-            amountHTML = document.createElement('p');
-            amountHTML.classList.add('article__amount');
-            amountHTML.textContent = `x${product.amount}`;
-            infoAmountHTML.appendChild(amountHTML);
+        const infoLeftRightHTML = document.createElement('div');
+        infoLeftRightHTML.classList.add('article__info-left-right');
+        infoLeftHTML.appendChild(infoLeftRightHTML);
         
-            const changeAmountHTML = document.createElement('div');
-            changeAmountHTML.classList.add('article__amount-change');
-            infoAmountHTML.appendChild(changeAmountHTML);
+        const nameHTML = document.createElement('p');
+        nameHTML.classList.add('article__name');
+        nameHTML.textContent = article.name;
+        infoLeftRightHTML.appendChild(nameHTML);
         
-            const plusImgHTML = document.createElement('img');
-            plusImgHTML.classList.add('article__amount-icon', 'article__amount-icon--plus');
-            plusImgHTML.setAttribute('src', 'src/assets/icon/icon_plus.svg');
-            plusImgHTML.setAttribute('width', '15');
-            plusImgHTML.setAttribute('height', '15');
-            plusImgHTML.setAttribute('alt', 'sumar unidad de producto');
-            changeAmountHTML.appendChild(plusImgHTML);
-            plusImgHTML.addEventListener('click', e => {
-                product.amount = product.amount + 1;
-                console.log(product);
-                amountHTML.textContent = `x${product.amount}`;
-                updateShoppingCartTotalAmount('plus', 1);
-                updateShoppingCartTotalPrice('plus', product.price);
-            });
-            
-            const minusImgHTML = document.createElement('img');
-            minusImgHTML.classList.add('article__amount-icon', 'article__amount-icon--minus');
-            minusImgHTML.setAttribute('src', 'src/assets/icon/icon_minus.svg');
-            minusImgHTML.setAttribute('width', '15');
-            minusImgHTML.setAttribute('height', '15');
-            minusImgHTML.setAttribute('alt', 'sumar unidad de producto');
-            changeAmountHTML.appendChild(minusImgHTML);
-            minusImgHTML.addEventListener('click', e => {
-                if (product.amount === 1) {
-                    miniAlert();
-                    return;
-                }
-                product.amount = product.amount - 1;
-                amountHTML.textContent = `x${product.amount}`;
-                updateShoppingCartTotalAmount('minus', 1);
-                updateShoppingCartTotalPrice('minus', product.price);
-            });
+        const infoAmountHTML = document.createElement('div');
+        infoAmountHTML.classList.add('article__info-amount');
+        infoLeftRightHTML.appendChild(infoAmountHTML);
         
-            const infoRightHTML = document.createElement('div');    
-            infoRightHTML.classList.add('article__info-right');
-            articleHTML.appendChild(infoRightHTML);
+        amountHTML = document.createElement('p');
+        amountHTML.classList.add('article__amount');
+        amountHTML.textContent = `x${article.amount}`;
+        infoAmountHTML.appendChild(amountHTML);
         
-            const priceHTML = document.createElement('div');
-            priceHTML.classList.add('article__price', 'article__price--cart');
-            priceHTML.textContent = `${product.price}€`;
-            infoRightHTML.appendChild(priceHTML);
+        const changeAmountHTML = document.createElement('div');
+        changeAmountHTML.classList.add('article__amount-change');
+        infoAmountHTML.appendChild(changeAmountHTML);
         
-            const removeHTML = document.createElement('a');
-            removeHTML.classList.add('article__remove');
-            removeHTML.setAttribute('href', '#');
-            infoRightHTML.appendChild(removeHTML);
+        const plusImgHTML = document.createElement('img');
+        plusImgHTML.classList.add('article__amount-icon', 'article__amount-icon--plus');
+        plusImgHTML.setAttribute('src', 'src/assets/icon/icon_plus.svg');
+        plusImgHTML.setAttribute('width', '15');
+        plusImgHTML.setAttribute('height', '15');
+        plusImgHTML.setAttribute('alt', 'sumar unidad de producto');
+        changeAmountHTML.appendChild(plusImgHTML);
+        plusImgHTML.addEventListener('click', e => {
+            updateArticleAmount('plus', article);
+            updateAmountHTML(article.amount);
+            updateShoppingCartTotalAmount('plus', 1);
+            updateShoppingCartTotalPrice('plus', article.price);
+        });
         
-            const removeImgHTML = document.createElement('img');
-            removeImgHTML.setAttribute('src', 'src/assets/icon/icon_close.png');
-            removeImgHTML.setAttribute('width', '15');
-            removeImgHTML.setAttribute('height', '15');
-            removeImgHTML.setAttribute('alt', 'desechar producto');
-            removeHTML.appendChild(removeImgHTML);
-            removeHTML.addEventListener('click', e => {
-                articleHTML.remove();
-                updateShoppingCartTotalPrice('minus', product.totalPrice());
-                updateShoppingCartTotalAmount('minus', product.amount);
-                updateListArticleId(product.id, listArticleId);
-                // Ahora sí falta asincronismo para resetear el producto!!
-            });
-
-
-            function miniAlert() {
-                removeHTML.classList.add('mini-alert');
-                setTimeout(() => {
-                    removeHTML.classList.remove('mini-alert');
-                }, 1500);
+        const minusImgHTML = document.createElement('img');
+        minusImgHTML.classList.add('article__amount-icon', 'article__amount-icon--minus');
+        minusImgHTML.setAttribute('src', 'src/assets/icon/icon_minus.svg');
+        minusImgHTML.setAttribute('width', '15');
+        minusImgHTML.setAttribute('height', '15');
+        minusImgHTML.setAttribute('alt', 'sumar unidad de producto');
+        changeAmountHTML.appendChild(minusImgHTML);
+        minusImgHTML.addEventListener('click', e => {
+            if (article.amount === 1) {
+                miniAlert();
+                return;
             }
+            updateArticleAmount('minus', article);
+            updateAmountHTML(article.amount);
+            updateShoppingCartTotalAmount('minus', 1);
+            updateShoppingCartTotalPrice('minus', article.price);
+        });
+        
+        const infoRightHTML = document.createElement('div');    
+        infoRightHTML.classList.add('article__info-right');
+        articleHTML.appendChild(infoRightHTML);
+        
+        const priceHTML = document.createElement('div');
+        priceHTML.classList.add('article__price', 'article__price--cart');
+        priceHTML.textContent = `${article.price}€`;
+        infoRightHTML.appendChild(priceHTML);
+        
+        const removeHTML = document.createElement('a');
+        removeHTML.classList.add('article__remove');
+        removeHTML.setAttribute('href', '#');
+        infoRightHTML.appendChild(removeHTML);
+        
+        const removeImgHTML = document.createElement('img');
+        removeImgHTML.setAttribute('src', 'src/assets/icon/icon_close.png');
+        removeImgHTML.setAttribute('width', '15');
+        removeImgHTML.setAttribute('height', '15');
+        removeImgHTML.setAttribute('alt', 'desechar producto');
+        removeHTML.appendChild(removeImgHTML);
+        removeHTML.addEventListener('click', e => {
+            articleHTML.remove();
+            updateShoppingCartTotalPrice('minus', article.totalPrice());
+            updateShoppingCartTotalAmount('minus', article.amount);
+            updateListArticleId(article.id);
+            updateListShoppingCart(article.id);;
+        });
+        
+        
+        function miniAlert() {
+            removeHTML.classList.add('mini-alert');
+            setTimeout(() => {
+                removeHTML.classList.remove('mini-alert');
+            }, 1500);
+        };
+        
+        shoppingCartResetHTML.addEventListener('click', e => {
+            listProducts.forEach( product => {
+                if (listArticleId.includes(product.id)) {
+                    articleHTML.remove();
+                    resetShoppingCartTotalAmount();
+                    resetShoppingCartTotalPrice();
+                    resetListShoppingCart();
+                    updateListArticleId(product.id, listArticleId);
+                }
+            });
+        });
+        
+    } else {
+        updateAmountHTML(article.amount);
+    }
 
-            shoppingCartResetHTML.addEventListener('click', e => {
-                listProducts.forEach( product => {
-                    if (listArticleId.includes(product.id)) {
-                        articleHTML.remove();
-                        resetShoppingCartTotalAmount();
-                        resetShoppingCartTotalPrice();
-                        resetListShoppingCart();
-                        updateListArticleId(product.id, listArticleId);
-                        resetAllProductsAmount();
-                    }
-                });
-            })
-
-        } else {
-            amountHTML.textContent = `x${product.amount}`;
-        }
-
-    };
-
-    return createArticleIntern;
 };
 
-const myCreateArticle = createArticle();
+function updateArticleAmount(action, article) {
+    if (action === 'plus') {
+        article.amount += 1;
+    } else if (action === 'minus') {
+        article.amount -= 1;
+    }
 
-function updateListArticleId(id, listArticleId) {
-    for (let i in listArticleId) {
-        if (listArticleId[i] === id) {
-            listArticleId.splice(0, 1);
+};
+
+function updateAmountHTML(amount) {
+    amountHTML.textContent = `x${amount}`;
+};
+
+let totalPrice = 0;
+function updateShoppingCartTotalPrice(action, productTotalPrice) {
+    if(action == 'plus') {
+        totalPrice += productTotalPrice;
+    } else if (action == 'minus') {
+        if (totalPrice - productTotalPrice <= 0) {
+            shoppingCartTotalPricetHTML.textContent = '';
+            return;
         }
-    };
+        totalPrice -= productTotalPrice;
+    }
+    shoppingCartTotalPricetHTML.textContent = `${totalPrice}€`;
+};
+function resetShoppingCartTotalAmount() {
+    shoppingCartTotalAmountHTML.textContent = '+';
 };
 
 
-function resetListShoppingCart() {
-    listShoppingCart.map( cartProduct => cartProduct.amount = 0);
-    delete listShoppingCart;
+let totalAmount = 0;
+function updateShoppingCartTotalAmount(action, productAmount) {
+    if(action == 'plus') {
+        totalAmount += productAmount;
+    } else if (action == 'minus') {
+        if (totalAmount - productAmount <= 0) {
+            shoppingCartTotalAmountHTML.textContent = '+';
+            return;
+        }
+        totalAmount -= productAmount;
+    }
+    shoppingCartTotalAmountHTML.textContent = totalAmount;
+};
+function resetShoppingCartTotalPrice() {
+    shoppingCartTotalPricetHTML.textContent = '';
+};
+
+
+function updateListArticleId(id) {
+    listArticleId = listArticleId.filter(element => element != id);
+};
+function resetListArticleId() {
+    listArticleId = [];
 }
+
+function updateListShoppingCart(id) {
+    listShoppingCart = listShoppingCart.filter(article => article.id != id);
+};
+function resetListShoppingCart() {
+    listShoppingCart = [];
+};
