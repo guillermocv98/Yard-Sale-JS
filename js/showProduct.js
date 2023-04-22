@@ -1,6 +1,6 @@
-// -- Show product -- //
+// VARIABLES
 
-// Link apertura en la línea 57 del archivo "dataBase" //
+// Open link in module "dataBase" at line 51 //
 const showProductCloseLinkHTML = document.querySelector('#close-show-product')
 const showProductHTML = document.querySelector('#show-product');
 
@@ -14,10 +14,12 @@ const showProductAmountHTML = document.querySelector('#show-product-amount');
 const showProductAddtoCartLinkHTML = document.querySelector('#add-to-cart--aside');
 
 
+// ADDEVENTLISTENERS
+
 document.addEventListener('DOMContentLoaded', e => {
     
-    // Evento apertura ShowProduct en la línea 57 del archivo dataBase //
-    
+    // Open event in module "dataBase" at line 51 //
+
     showProductCloseLinkHTML.addEventListener('click', e => {
 
         closeView(showProductHTML)
@@ -46,24 +48,22 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
 
+// FUNCTIONS
 function showProductChargeData(product) {
     // Id 
     showProductIdHTML.textContent = product.id;
-    // Nombre
+    // Name
     showProductNameHTML.textContent = product.name;
-    // Precio
+    // Price
     showProductPriceHTML.textContent = `${product.price}€`;
-    // Imágenes
+    // Images
     showProductImgAvifHTML.srcset = product.image_1;
     showProductImgWebpHTML.srcset = product.image_2;
     showProductImgJpgHTML.src = product.image_3;
-    // Cantidad
+    // Amount
     updateShowProductAmount(product.amount);
 };
 
 function updateShowProductAmount(amount) {
     showProductAmountHTML.value = amount;
 }
-
-
-

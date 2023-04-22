@@ -1,5 +1,5 @@
 // VARIABLES
-const linkShoppingCartHTML = document.querySelector('#link-shopping-cart');
+const shoppingCartLinkHTML = document.querySelector('#link-shopping-cart');
 const shoppingCartHTML = document.querySelector('#shopping-cart');
 
 const shoppingCartTotalAmountHTML = document.querySelector('#shopping-cart-total-amount');
@@ -11,16 +11,14 @@ const shoppingCartResetHTML = document.querySelector('#reset-cart');
 // ADDEVENTLISTENERS
 document.addEventListener('DOMContentLoaded', e => {
 
-    linkShoppingCartHTML.addEventListener('click', e => {
+    shoppingCartLinkHTML.addEventListener('click', e => {
         toggleMenu(shoppingCartHTML);
     });
 
 });
 
 
-// FUNCIONES
-
-
+// FUNCTIONS
 let listShoppingCart = [];
 function addToCart(product) {
 
@@ -41,9 +39,8 @@ function addToCart(product) {
     });
 };
 
-
-let listArticleId = [];
 let amountHTML;
+let listArticleId = [];
 function createArticle(article) {
     
     if (!listArticleId.includes(article.id)) {
@@ -116,7 +113,7 @@ function createArticle(article) {
         changeAmountHTML.appendChild(plusImgHTML);
         plusImgHTML.addEventListener('click', e => {
             updateArticleAmount('plus', article);
-            updateAmountHTML(article.amount);
+            updateAmountHTML(article.amount, amountHTML)
             updateShoppingCartTotalAmount('plus', 1);
             updateShoppingCartTotalPrice('plus', article.price);
         });
@@ -134,9 +131,9 @@ function createArticle(article) {
                 return;
             }
             updateArticleAmount('minus', article);
-            updateAmountHTML(article.amount);
             updateShoppingCartTotalAmount('minus', 1);
             updateShoppingCartTotalPrice('minus', article.price);
+            updateAmountHTML(article.amount, amountHTML);
         });
         
         const infoRightHTML = document.createElement('div');    
@@ -165,6 +162,7 @@ function createArticle(article) {
             updateShoppingCartTotalAmount('minus', article.amount);
             updateListArticleId(article.id);
             updateListShoppingCart(article.id);;
+            resetArticleAmount(article);
         });
         
         
@@ -188,23 +186,26 @@ function createArticle(article) {
         });
         
     } else {
-        updateAmountHTML(article.amount);
+        updateAmountHTML(article.amount, amountHTML);
     }
 
 };
 
+function updateAmountHTML(amount, amountHTML) {
+    amountHTML.textContent = `x${amount}`;
+};
 function updateArticleAmount(action, article) {
+    console.log(article);
     if (action === 'plus') {
         article.amount += 1;
     } else if (action === 'minus') {
         article.amount -= 1;
     }
-
+};
+function resetArticleAmount(article) {
+    article.amount = 0
 };
 
-function updateAmountHTML(amount) {
-    amountHTML.textContent = `x${amount}`;
-};
 
 let totalPrice = 0;
 function updateShoppingCartTotalPrice(action, productTotalPrice) {
@@ -213,6 +214,7 @@ function updateShoppingCartTotalPrice(action, productTotalPrice) {
     } else if (action == 'minus') {
         if (totalPrice - productTotalPrice <= 0) {
             shoppingCartTotalPricetHTML.textContent = '';
+            totalPrice -= productTotalPrice;
             return;
         }
         totalPrice -= productTotalPrice;
@@ -231,6 +233,7 @@ function updateShoppingCartTotalAmount(action, productAmount) {
     } else if (action == 'minus') {
         if (totalAmount - productAmount <= 0) {
             shoppingCartTotalAmountHTML.textContent = '+';
+            totalAmount -= productAmount;
             return;
         }
         totalAmount -= productAmount;
@@ -248,6 +251,7 @@ function updateListArticleId(id) {
 function resetListArticleId() {
     listArticleId = [];
 }
+
 
 function updateListShoppingCart(id) {
     listShoppingCart = listShoppingCart.filter(article => article.id != id);

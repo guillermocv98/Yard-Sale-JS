@@ -1,28 +1,20 @@
 // VARIABLES
-
-
-// Desplegables // 
-
-const linkMenuMobileHTML = document.querySelector('#link-menu--mobile');
+const menuMobileLinkHTML = document.querySelector('#link-menu--mobile');
 const menuMobileHTML = document.querySelector('#menu--mobile');
 
-
-const linkMenuDesktopHTML = document.querySelector('#link-menu--desktop');
+const menuDesktopLinkHTML = document.querySelector('#link-menu--desktop');
 const menuDesktopHTML = document.querySelector('#menu--desktop');
-
-
-
 
 
 
 //ADDEVENTLISTENERS
 document.addEventListener('DOMContentLoaded', () => {
 
-    linkMenuMobileHTML.addEventListener('click', e => {
+    menuMobileLinkHTML.addEventListener('click', e => {
         toggleMenu(menuMobileHTML);
     });
 
-    linkMenuDesktopHTML.addEventListener('click', e => {
+    menuDesktopLinkHTML.addEventListener('click', e => {
         toggleMenu(menuDesktopHTML);
     });
 
@@ -30,11 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
 //FUNCIONES
-
-// Desplegables
 function toggleMenu(menu) {
     menu.classList.toggle('inactive');
 };

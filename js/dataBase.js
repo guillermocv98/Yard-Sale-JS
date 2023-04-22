@@ -1,11 +1,11 @@
-// Variables
+// VARIABLES
 const listProducts = [];
 const description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos praesentium alias atque laudantium! Nam eligendi doloribus architecto error maxime!';
 
 const divProductsHTML = document.querySelector('#grid-products');
 
 
-// Crear base de datos
+// CREATE DATABASE
 let price = 120;
 for(let i = 1; i <= 15; i++) {
     createProduct(`AAA-${i}`, `Laptop ${i}`, price, i, description);
@@ -28,7 +28,7 @@ function createProduct(id, name, price, index, description) {
     });
 };
 
-// Insertar en el html
+// INSERT HTML
 listProducts.forEach(product => { 
 
     const productHTML = document.createElement('div');
@@ -55,7 +55,7 @@ listProducts.forEach(product => {
     imgHTML.setAttribute('height', '150');
     imgHTML.setAttribute('alt', 'imagen producto');
     pictureHTML.appendChild(imgHTML);
-    // Desplegable vista producto
+    // Aside view product
     imgHTML.addEventListener('click', e => {
         
         const amount = Number(e.target.parentElement.parentElement.children[1].children[1].children[0].value);
@@ -132,12 +132,8 @@ listProducts.forEach(product => {
 });
 
 
-// FUNCIONES
 
+// FUNCTIONS
 function updateProductAmount(product, amount) {
     product.amount = amount;
 };
-
-// function resetProductAmount(product) {
-//     product.amount = 0;
-// }
